@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAJAJYOTI 2026 | CUTM Paralakhemundi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= ROOT ================= */
+:root {
+  --primary: #f5c542;
+  --accent: #64b4ff;
+  --danger: #ff5a5a;
+  --text: #eaeaf0;
+  --muted: rgba(255,255,255,0.65);
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(
+    circle at top,
+    #1b1f2a 0%,
+    #0f1220 45%,
+    #0b0e16 100%
+  );
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15,18,32,0.75);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.navbar h2 {
+  letter-spacing: 2px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  padding: 120px 60px 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 60px;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  margin-top: 12px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 34px;
+  background: var(--primary);
+  color: #000;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-outline {
+  padding: 14px 34px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 40px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ================= GLASS CARD ================= */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+
+/* ================= PILLS ================= */
+.pill {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(245,197,66,0.15);
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.pill.secondary {
+  background: rgba(100,180,255,0.15);
+  color: var(--accent);
+}
+
+/* ================= COUNTDOWN ================= */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.countdown-item {
+  text-align: center;
+  padding: 18px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+}
+
+.countdown-value {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.countdown-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 90px 60px;
+}
+
+.section-alt {
+  background: rgba(255,255,255,0.02);
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ================= SCHEDULE ================= */
+.schedule-item {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  padding: 30px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 110px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(15,18,32,0.95);
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 14px;
+    display: none;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  section {
+    padding: 70px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <h2>GAJAJYOTI</h2>
+  <div class="menu-toggle" id="menuToggle">☰</div>
+  <ul id="navMenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="pill">Annual University Fest</span>
+    <h1>GAJAJYOTI 2026</h1>
+    <p>Centurion University of Technology & Management, Paralakhemundi</p>
+
+    <div class="hero-actions">
+      <a href="#events" class="btn-primary">Explore Events</a>
+      <a href="#schedule" class="btn-outline">View Schedule</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Countdown to Fest</h3>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">
+      The celebration begins soon.
+    </p>
+
+    <div class="countdown">
+      <div class="countdown-item">
+        <div class="countdown-value" id="days">--</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">--</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">--</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">--</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-alt">
+  <h2 class="section-title">About the Fest</h2>
+  <p class="section-sub">
+    Gajajyoti is the flagship annual fest of CUTM, celebrating innovation, culture, sports,
+    and student excellence across all schools.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="pill">Innovation</span>
+      <h3>Technical Excellence</h3>
+      <p>Hackathons, coding contests, project expos, and innovation challenges.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill secondary">Culture</span>
+      <h3>Creative Expression</h3>
+      <p>Dance, music, drama, fashion, photography and fine arts.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Sports</span>
+      <h3>Energy & Sportsmanship</h3>
+      <p>Indoor & outdoor sports along with high-energy gaming events.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <h2 class="section-title">Major Events</h2>
+  <p class="section-sub">A glimpse of the flagship competitions at GAJAJYOTI.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Hackathon</h3>
+      <p>24-hour problem solving and innovation marathon.</p>
+    </div>
+    <div class="card">
+      <h3>Cultural Night</h3>
+      <p>Music, dance and celebrity performances.</p>
+    </div>
+    <div class="card">
+      <h3>Sports & Gaming</h3>
+      <p>Competitive sports and esports tournaments.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="section-alt">
+  <h2 class="section-title">Event Schedule</h2>
+  <p class="section-sub">Three days of continuous celebration.</p>
+
+  <div class="grid">
+    <div class="schedule-item">
+      <h4>Day 1</h4>
+      <p>Inauguration & Technical Events</p>
+    </div>
+    <div class="schedule-item">
+      <h4>Day 2</h4>
+      <p>Cultural & Sports Events</p>
+    </div>
+    <div class="schedule-item">
+      <h4>Day 3</h4>
+      <p>Finals & Closing Ceremony</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact & Venue</h2>
+  <p class="section-sub">Reach out for registrations and queries.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Venue</h3>
+      <p>CUTM, Paralakhemundi<br>Odisha, India</p>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p>gajajyoti@cutm.ac.in</p>
+    </div>
+    <div class="card">
+      <h3>Phone</h3>
+      <p>+91 96923 85543</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 GAJAJYOTI | Centurion University of Technology & Management
+</footer>
+
+<script>
+/* MOBILE MENU */
+document.getElementById("menuToggle").onclick = () =>
+  document.getElementById("navMenu").classList.toggle("show");
+
+/* COUNTDOWN */
+const eventDate = new Date("January 29, 2026 10:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+  days.innerText = Math.max(0, Math.floor(diff / (1000*60*60*24)));
+  hours.innerText = Math.max(0, Math.floor((diff / (1000*60*60)) % 24));
+  minutes.innerText = Math.max(0, Math.floor((diff / (1000*60)) % 60));
+  seconds.innerText = Math.max(0, Math.floor((diff / 1000) % 60));
+}, 1000);
+</script>
+
+</body>
+</html>
