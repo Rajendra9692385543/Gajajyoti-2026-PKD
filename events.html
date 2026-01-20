@@ -49,25 +49,28 @@ body{
 .page-header p{color:var(--muted);max-width:700px}
 
 /* ================= SECTIONS ================= */
-section{
-  padding:80px 0;
-  position:relative;
+section {
+  padding: 55px 0;   /* reduced from 80px */
+  position: relative;
 }
-.section-alt{
-  background:linear-gradient(
+
+.section-alt {
+  background: linear-gradient(
     180deg,
-    rgba(255,255,255,.025),
-    rgba(255,255,255,.05),
-    rgba(255,255,255,.025)
+    rgba(255,255,255,0.025),
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.025)
   );
 }
+
+/* Divider – closer to content */
 section:not(:last-of-type)::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 12px;   /* pull divider UP */
   left: 50%;
   transform: translateX(-50%);
-  width: 65%;
+  width: 60%;
   height: 1px;
   background: linear-gradient(
     to right,
@@ -77,10 +80,11 @@ section:not(:last-of-type)::after {
   );
 }
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 60px;
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 60px;
 }
 
 /* ================= TITLES ================= */
@@ -95,8 +99,8 @@ section:not(:last-of-type)::after {
 
 /* ================= CLUB HEADER ================= */
 .club-header {
-  margin-bottom: 30px;
-  padding-bottom: 14px;
+  margin-bottom: 22px;   /* reduced */
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
@@ -300,59 +304,13 @@ footer{
         Showcase your talents, skills, and creativity across multiple domains.
     </p>
 </div>
-<!-- ================= CODING CLUB ================= -->
-<section class="section-alt">
-  <div class="container">
 
-    <!-- Club Header -->
-    <div class="club-header">
-      <h2 class="section-title">Coding Club</h2>
-      <p class="section-sub">Technology & Logic</p>
-    </div>
-
-    <!-- Event Cards -->
-    <div class="event-cards">
-
-      <!-- Competitive Coding -->
-      <div class="event-detail-card">
-        <div class="event-category">TECHNICAL</div>
-        <h4>Competitive Coding Event</h4>
-
-        <p>
-          Batch-wise competitive coding challenge focusing on algorithms,
-          logic building, and problem-solving skills.
-          Winners will represent CUTM in GAJAJYOTI events.
-        </p>
-
-        <div class="event-footer">
-          <div class="event-meta">
-            <i class="fa-solid fa-location-dot"></i>
-            CC Lab · 28 Jan 2026
-          </div>
-
-          <div class="event-actions">
-            <a href="#" class="btn-view">View Details</a>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfbj34xwurs7aQ0ECMumEud7tER1GMU58vxxmFdIQ3K8Nn-pA/viewform"
-              target="_blank"
-              class="btn-register"
-            >
-              Register
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 <!-- ================= CASR CLUB ================= -->
 <section>
   <div class="container">
 
     <!-- Club Header -->
     <div class="club-header">
-        <h1>Club Events</h1>
 
       <h2 class="section-title">CaSR Club</h2>
       <p class="section-sub">Creative Arts & Expression</p>
@@ -435,7 +393,7 @@ footer{
 
         <div class="event-footer">
           <div class="event-meta">
-            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+            <i class="fa-solid fa-location-dot"></i> Coming Soon
           </div>
 
           <div class="event-actions">
@@ -455,7 +413,7 @@ footer{
 
         <div class="event-footer">
           <div class="event-meta">
-            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+            <i class="fa-solid fa-location-dot"></i> Coming Soon
           </div>
 
           <div class="event-actions">
@@ -475,7 +433,7 @@ footer{
 
         <div class="event-footer">
           <div class="event-meta">
-            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+            <i class="fa-solid fa-location-dot"></i> Coming Soon
           </div>
 
           <div class="event-actions">
@@ -557,7 +515,7 @@ footer{
         <div class="event-footer">
           <div class="event-meta">
             <i class="fa-solid fa-location-dot"></i>
-            NAD · 10 Feb 2026
+            Coming Soon
           </div>
 
           <div class="event-actions">
@@ -898,7 +856,52 @@ footer{
     </div>
   </div>
 </section>
+<!-- ================= CODING CLUB ================= -->
+<section class="section-alt">
+  <div class="container">
 
+    <!-- Club Header -->
+    <div class="club-header">
+      <h2 class="section-title">Coding Club</h2>
+      <p class="section-sub">Technology & Logic</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Competitive Coding -->
+      <div class="event-detail-card">
+        <div class="event-category">TECHNICAL</div>
+        <h4>Competitive Coding Event</h4>
+
+        <p>
+          Batch-wise competitive coding challenge focusing on algorithms,
+          logic building, and problem-solving skills.
+          Winners will represent CUTM in GAJAJYOTI events.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            CC Lab · 28 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfbj34xwurs7aQ0ECMumEud7tER1GMU58vxxmFdIQ3K8Nn-pA/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- ================= SCHOOL EVENTS ================= -->
 <section class="section-alt">
 <div class="container">
