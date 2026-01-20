@@ -17,6 +17,10 @@ Paralakhemundi college fest, CUTM annual celebration" />
 <link rel="canonical" href="https://gajajyoti-2026-pkd.vercel.app/" />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
 <style>
 /* ================= ROOT ================= */ 
@@ -413,23 +417,34 @@ body {
   color: var(--primary);
 }
 
-/* SOCIAL ICONS */
+/* ================= SOCIAL ICONS ================= */
 .celebrity-socials {
-  margin-top: 10px;
+  margin-top: 12px;
   display: flex;
   gap: 18px;
+  align-items: center;
 }
 
+/* Anchor reset */
 .celebrity-socials a {
-  font-size: 20px;
-  color: #ffffff; /* force visibility */
-  opacity: 0.9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Icon itself */
+.celebrity-socials a i {
+  font-size: 22px;
+  color: #ffffff !important; /* force visibility */
+  opacity: 0.95;
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.celebrity-socials a:hover {
+/* Hover effect */
+.celebrity-socials a:hover i {
   transform: translateY(-2px);
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 /* ================= RIGHT CONTENT ================= */
@@ -858,7 +873,7 @@ footer {
 
       <p class="celebrity-text">
         The most awaited highlight of GAJAJYOTI 2026 is the spectacular
-        <strong>Celebrity Night</strong>, bringing electrifying performances
+        <strong>Star Night</strong>, bringing electrifying performances
         and high-energy entertainment to the grand stage.
       </p>
 
