@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Events | GAJAJYOTI 2026</title>
+<meta name="viewport" content="width=1200">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+:root{
+  --primary:#f5c542;
+  --accent:#64b4ff;
+  --text:#eaeaf0;
+  --muted:rgba(255,255,255,.65);
+}
+
+/* ================= BASE ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+  background:radial-gradient(circle at top,#1b1f2a,#0f1220 45%,#0b0e16);
+  color:var(--text);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:fixed;top:0;width:100%;
+  padding:14px 50px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(15,18,32,.75);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{height:36px}
+.navbar h2{font-size:20px;letter-spacing:2px}
+.navbar ul{list-style:none;display:flex;gap:26px}
+.navbar a{color:var(--text);text-decoration:none;font-size:14px}
+.navbar a:hover{color:var(--primary)}
+
+/* ================= PAGE HEADER ================= */
+.page-header{
+  padding:160px 60px 90px;
+  max-width:1200px;
+  margin:auto;
+}
+.page-header h1{font-size:44px;margin-bottom:12px}
+.page-header p{color:var(--muted);max-width:700px}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:80px 0;
+  position:relative;
+}
+.section-alt{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.025),
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.025)
+  );
+}
+section:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.12),
+    transparent
+  );
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 60px;
+}
+
+/* ================= TITLES ================= */
+.section-title{
+  font-size:34px;
+  margin-bottom:12px;
+}
+.section-sub{
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+/* ================= CLUB HEADER ================= */
+.club-header{
+  margin-bottom:18px;
+}
+.club-header h3{
+  font-size:26px;
+}
+.club-header span{
+  display:inline-block;
+  margin-top:6px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= CAROUSEL ================= */
+.carousel{
+  display:flex;
+  gap:26px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+.carousel::-webkit-scrollbar{display:none}
+
+/* ================= EVENT CARD ================= */
+.event-card{
+  min-width:320px;
+  height:360px;
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,.15);
+  transition:.35s;
+}
+.event-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 28px 60px rgba(0,0,0,.6);
+}
+
+/* overlay */
+.event-card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.9),
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.15)
+  );
+}
+
+/* content */
+.event-content{
+  position:absolute;
+  bottom:22px;left:22px;right:22px;
+  z-index:2;
+}
+.event-tag{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(245,197,66,.95);
+  color:#000;
+  margin-bottom:10px;
+}
+.event-content h4{font-size:20px;margin-bottom:6px}
+.event-content ul{
+  padding-left:18px;
+}
+.event-content li{
+  font-size:13px;
+  color:rgba(255,255,255,.9);
+  margin-bottom:4px;
+}
+/* ================= EVENT DETAIL CARDS ================= */
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.event-detail-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.04)
+  );
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 22px;
+  padding: 28px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-detail-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.5);
+}
+
+/* Category label */
+.event-category {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Title */
+.event-detail-card h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.event-detail-card p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Footer row */
+.event-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Prize / mode */
+.event-meta {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Buttons */
+.event-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.event-actions a {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.event-actions .btn-view {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--text);
+}
+
+.event-actions .btn-register {
+  background: var(--primary);
+  color: #000;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:30px;
+  text-align:center;
+  background:rgba(0,0,0,.6);
+  font-size:13px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-brand">
+    <img src="./assets/logos/gajajyoti.png" class="nav-logo">
+    <h2>GAJAJYOTI</h2>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about.index.html">About</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>Events at GAJAJYOTI 2026</h1>
+    <p>
+        Explore a diverse range of competitions and activities organized by
+        various clubs at Centurion University of Technology & Management.
+        Showcase your talents, skills, and creativity across multiple domains.
+    </p>
+</div>
+
+<!-- ================= CASR CLUB ================= -->
+<section>
+  <div class="container">
+
+    <!-- Club Header -->
+    <div class="club-header">
+        <h1>Club Events</h1>
+
+      <h2 class="section-title">CaSR Club</h2>
+      <p class="section-sub">Creative Arts & Expression</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Digital Painting -->
+      <div class="event-detail-card">
+        <div class="event-category">CREATIVE</div>
+        <h4>Digital Painting Competition</h4>
+        <p>
+          Showcase your imagination and artistic skills using digital tools.
+          Original artwork only.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-globe"></i> Online
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="https://forms.gle/poo9YebJjNRu1EH56" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Short Film -->
+      <div class="event-detail-card">
+        <div class="event-category">MEDIA</div>
+        <h4>Short Film Making Competition</h4>
+        <p>
+          Tell impactful stories through short films with originality
+          and creativity.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-globe"></i> Online
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="https://forms.gle/r24xktTkkkrb9DRr6" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creative Writing -->
+      <div class="event-detail-card">
+        <div class="event-category">LITERARY</div>
+        <h4>Creative Writing Competition</h4>
+        <p>
+          Express emotions, thoughts, and stories through powerful words
+          and imagination.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-globe"></i> Online
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="https://forms.gle/WRw9YDbFPimWeV8W7" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Craft -->
+      <div class="event-detail-card">
+        <div class="event-category">HANDCRAFT</div>
+        <h4>Craft Competition</h4>
+        <p>
+          Display handmade creativity using innovative materials and
+          traditional techniques.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rangoli -->
+      <div class="event-detail-card">
+        <div class="event-category">TRADITIONAL ART</div>
+        <h4>Rangoli Competition</h4>
+        <p>
+          Celebrate colors and tradition through artistic rangoli designs.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Singing -->
+      <div class="event-detail-card">
+        <div class="event-category">MUSIC</div>
+        <h4>Singing Competition</h4>
+        <p>
+          Solo and group vocal performances showcasing musical talent.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i> NAD · 16 Feb · 2:30 PM
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speak Sphere -->
+      <div class="event-detail-card">
+        <div class="event-category">PUBLIC SPEAKING</div>
+        <h4>Speak Sphere</h4>
+        <p>
+          A platform to express ideas, opinions, and confidence through speech.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i> Lawn · 19 Feb · 6:00 PM
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="https://forms.gle/nXDmCECDbQ8iJ7r66" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CODING CLUB ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <!-- Club Header -->
+    <div class="club-header">
+      <h2 class="section-title">Coding Club</h2>
+      <p class="section-sub">Technology & Logic</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Competitive Coding -->
+      <div class="event-detail-card">
+        <div class="event-category">TECHNICAL</div>
+        <h4>Competitive Coding Event</h4>
+
+        <p>
+          Batch-wise competitive coding challenge focusing on algorithms,
+          logic building, and problem-solving skills.
+          Winners will represent CUTM in GAJAJYOTI events.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            CC Lab · 28 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfbj34xwurs7aQ0ECMumEud7tER1GMU58vxxmFdIQ3K8Nn-pA/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= SPIRITUAL CLUB ================= -->
+<section>
+  <div class="container">
+
+    <!-- Club Header -->
+    <div class="club-header">
+      <h2 class="section-title">Spiritual Club</h2>
+      <p class="section-sub">Mindfulness, Wellness & Indian Knowledge Systems</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Yogasana Competition -->
+      <div class="event-detail-card">
+        <div class="event-category">WELLNESS</div>
+        <h4>Yogasana Competition</h4>
+
+        <p>
+          A wellness-focused competition promoting physical fitness,
+          flexibility, discipline, and mental balance through yogic practices.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            Basketball Court · 07 Feb 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a
+              href="https://forms.gle/vsJR9ELNu6RaAXbs5"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bhagavad Gita Quiz -->
+      <div class="event-detail-card">
+        <div class="event-category">KNOWLEDGE</div>
+        <h4>Bhagavad Gita Quiz Competition</h4>
+
+        <p>
+          A knowledge-based quiz exploring the teachings, philosophy,
+          and life lessons from the Bhagavad Gita.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            Temple Premises · 09 Feb 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a
+              href="https://forms.gle/dFeCx7txWg6Gp49m9"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= ZYRA CLUB ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <!-- Club Header -->
+    <div class="club-header">
+      <h2 class="section-title">Zyra Club</h2>
+      <p class="section-sub">Fashion, Confidence & Stage Presence</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Audition CFW -->
+      <div class="event-detail-card">
+        <div class="event-category">FASHION</div>
+        <h4>Audition – CFW</h4>
+
+        <p>
+          Official auditions for Centurion Fashion Week, focusing on runway walk,
+          confidence, posture, and stage presence.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            NAD · 02 Feb 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mr & Miss Centurion -->
+      <div class="event-detail-card">
+        <div class="event-category">SHOWCASE</div>
+        <h4>Mr & Miss Centurion</h4>
+
+        <p>
+          A flagship personality and fashion title competition celebrating confidence,
+          elegance, communication skills, and attitude.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            NAD · 10 Feb 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= DRONE CLUB ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Drone Club</h2>
+      <p class="section-sub">Aviation, Simulation & Control Systems</p>
+    </div>
+
+    <div class="event-cards">
+
+      <div class="event-detail-card">
+        <div class="event-category">TECH & AVIATION</div>
+        <h4>Maneuver Drone Simulators</h4>
+
+        <p>
+          Experience hands-on drone navigation through advanced simulators,
+          testing precision control, maneuvering skills, and situational awareness.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-calendar-days"></i>
+            27–30 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a
+              href="https://docs.google.com/forms/d/e/sSd9b9lfXqBcFZqaxwIhBS2jD-MJwcq6ZWgERZI589m1e6YGug/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= LITERATURE CLUB ================= -->
+<section>
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Literature Club</h2>
+      <p class="section-sub">Words, Stories & Imagination</p>
+    </div>
+
+    <div class="event-cards">
+
+      <div class="event-detail-card">
+        <div class="event-category">CREATIVE WRITING</div>
+        <h4>One Picture, Many Stories</h4>
+
+        <p>
+          Participants craft imaginative stories inspired by a single visual prompt,
+          showcasing narrative skill and creativity.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            Seminar Hall · 19 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-detail-card">
+        <div class="event-category">FUN & LANGUAGE</div>
+        <h4>Fun Finale</h4>
+
+        <p>
+          Interactive rounds, wordplay, quizzes, and engaging language activities.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            Seminar Hall · 19 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-detail-card">
+        <div class="event-category">LANGUAGE & SPEED</div>
+        <h4>Word Hackathon</h4>
+
+        <p>
+          A fast-paced linguistic challenge testing vocabulary and quick thinking.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            Seminar Hall · 19 Jan 2026
+          </div>
+
+          <div class="event-actions">
+            <a href="#" class="btn-view">View Details</a>
+            <a href="#" class="btn-register">Register</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCHOOL EVENTS ================= -->
+<section class="section-alt">
+<div class="container">
+  <h2 class="section-title">School-wise Events</h2>
+  <p class="section-sub">Competitions organized by different schools of CUTM.</p>
+
+  <div class="carousel">
+    <div class="event-card" style="background-image:url('https://images.unsplash.com/photo-1581091215367-59ab6c1e06a6')">
+      <div class="event-content">
+        <span class="event-tag">SoET</span>
+        <h4>Engineering Challenges</h4>
+        <ul>
+          <li>Innovation</li>
+          <li>Design</li>
+          <li>Problem Solving</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="event-card" style="background-image:url('https://images.unsplash.com/photo-1580281657527-47f249e8f6df')">
+      <div class="event-content">
+        <span class="event-tag">SoN</span>
+        <h4>Health & Awareness</h4>
+        <ul>
+          <li>Medical Activities</li>
+          <li>Wellness Events</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+© GAJAJYOTI 2026 | Centurion University of Technology & Management
+</footer>
+
+</body>
+</html>

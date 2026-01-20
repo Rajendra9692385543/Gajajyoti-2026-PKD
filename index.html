@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1200">
 <title>GAJAJYOTI 2026 | Annual Fest of CUTM Paralakhemundi</title>
 
 <meta name="keywords" content="GAJAJYOTI 2026, Gajajyoti fest, CUTM Gajajyoti, Centurion University fest, CUTM Paralakhemundi fest, University fest Odisha, College fest Odisha, Annual fest CUTM, Technical fest CUTM,
@@ -111,7 +111,7 @@ body {
   cursor: pointer;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE ================= 
 @media (max-width: 900px) {
   .navbar {
     padding: 12px 20px;
@@ -129,7 +129,7 @@ body {
     display: block;
   }
 }
-
+*/
 /* ================= HERO ================= */
 .hero {
   position: relative;
@@ -266,7 +266,7 @@ body {
   grid-column: span 2;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE ================= 
 @media (max-width: 900px) {
   .about-wrapper {
     grid-template-columns: 1fr;
@@ -298,7 +298,7 @@ body {
   background: var(--primary);
   border-radius: 2px;
 }
-
+*/
 
 /* ================= Logo ================= */
 /* ABOUT LOGOS – UPDATED */
@@ -322,7 +322,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Mobile adjustment */
+/* Mobile adjustment 
 @media (max-width: 900px) {
   .about-logos {
     justify-content: center;
@@ -334,7 +334,7 @@ body {
     height: 46px;
   }
 }
-
+*/
 /* ================= CELEBRITY SECTION ================= */
 .celebrity-section {
   padding: 80px 60px 100px; /* extra bottom spacing for separation */
@@ -470,7 +470,7 @@ body {
   color: var(--primary);
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE ================= 
 @media (max-width: 900px) {
   .celebrity-section {
     padding: 60px 20px 80px;
@@ -494,7 +494,193 @@ body {
     justify-content: center;
   }
 }
+*/
+/* ================= EVENTS CAROUSEL ================= */
+.events-carousel {
+  padding: 90px 60px;
+  position: relative;
+  overflow: hidden; /* IMPORTANT for transform-based motion */
+}
 
+.carousel-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Titles */
+.events-carousel .section-title {
+  margin-bottom: 10px;
+}
+
+.events-carousel .section-sub {
+  margin-bottom: 50px;
+}
+
+/* ================= CATEGORY BLOCK ================= */
+.day-block {
+  margin-bottom: 70px;
+}
+
+.day-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ================= SCROLL TRACK ================= */
+.carousel-track {
+  display: flex;
+  gap: 26px;
+  padding-bottom: 16px;
+
+  /* CRITICAL for infinite transform animation */
+  will-change: transform;
+  transform: translateX(0);
+}
+
+/* Disable native scrolling interference */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= EVENT CARD ================= */
+.event-card-scroll {
+  flex-shrink: 0; /* VERY IMPORTANT */
+  min-width: 320px;
+  height: 340px;
+  padding: 22px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Overlay for readability */
+.event-card-scroll::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25)
+  );
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+.event-card-scroll > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover (desktop only visual lift)
+@media (hover: hover) {
+  .event-card-scroll:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.65);
+  }
+}
+ */
+/* ================= TAG ================= */
+.event-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: rgba(245,197,66,0.95);
+  color: #000;
+  width: fit-content;
+  font-weight: 500;
+}
+
+/* ================= TEXT ================= */
+.event-card-scroll h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+/* Event list */
+.event-card-scroll ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.event-card-scroll ul li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+/* ================= MOBILE ================= 
+@media (max-width: 900px) {
+  .events-carousel {
+    padding: 65px 16px;
+  }
+
+  .day-title {
+    font-size: 20px;
+  }
+
+  .event-card-scroll {
+    min-width: 260px;
+    height: 300px;
+    padding: 18px;
+  }
+
+  .event-card-scroll h4 {
+    font-size: 16px;
+  }
+
+  .event-card-scroll ul li {
+    font-size: 12.5px;
+  }
+}
+*/
+/* EVENTS CTA */
+.events-cta {
+  margin-top: 20px;
+  padding-bottom: auto;
+  text-align: center;
+  position: relative;
+}
+
+/* ================= CONTACT PREVIEW ================= */
+.contact-preview {
+  text-align: center;
+}
+
+.contact-preview .section-sub {
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.contact-actions {
+  margin-top: 20px;
+}
+
+/* Mobile 
+@media (max-width: 900px) {
+  .contact-preview .section-sub {
+    font-size: 14px;
+  }
+}
+*/
 /* ================= GLASS CARD ================= */
 .card {
   background: linear-gradient(
@@ -593,12 +779,59 @@ section {
 }
 
 /* ================= SCHEDULE ================= */
-.schedule-item {
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.05);
+#schedule {
+  padding: 90px 60px;
+  text-align: center;
 }
 
+.schedule-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+#schedule .section-title {
+  margin-bottom: 12px;
+}
+
+#schedule .section-sub {
+  margin-bottom: 26px;
+  color: var(--muted);
+}
+
+.schedule-badge {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(245,197,66,0.15);
+  color: var(--primary);
+  font-size: 13px;
+}/*
+@media (max-width: 900px) {
+  .events-cta {
+    margin-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .celebrity-section {
+    padding: 80px 20px;
+  }
+}
+*/
+/* ================= MOBILE ================= 
+@media (max-width: 900px) {
+  #schedule {
+    padding: 70px 20px;
+  }
+
+  #schedule::before {
+    width: 90px;
+  }
+
+  .schedule-wrapper {
+    padding-top: 30px;
+  }
+}
+*/
 /* ================= FOOTER ================= */
 footer {
   padding: 30px;
@@ -611,7 +844,7 @@ footer {
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
 
-  /* NAVBAR */
+  /* NAVBAR */ /*
   .menu-toggle {
     display: block;
   }
@@ -636,8 +869,8 @@ footer {
   .navbar ul.show {
     display: flex;
   }
-
-  /* HERO */
+*/
+  /* HERO 
   .hero {
     height: auto;
     min-height: auto;
@@ -667,22 +900,19 @@ footer {
 
   .hero-card {
     margin-top: 24px;
-  }
+  } */
 
-  /* COUNTDOWN */
+  /* COUNTDOWN 
   .countdown {
     gap: 10px;
   }
 
   .countdown-value {
     font-size: 22px;
-  }
+  } */
 
-  /* SECTIONS */
-  section {
-    padding: 60px 18px;
-  }
-}
+ 
+} 
 </style>
 </head>
 <body>
@@ -699,7 +929,7 @@ footer {
   <ul id="navMenu">
     <li><a href="#">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#events">Events</a></li>
+    <li><a href="events.html">Events</a></li>
     <li><a href="#schedule">Schedule</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -727,7 +957,7 @@ footer {
       <p>Centurion University of Technology & Management, Paralakhemundi</p>
 
       <div class="hero-actions">
-        <a href="#events" class="btn-primary">Explore Events</a>
+        <a href="events.html" class="btn-primary">Explore Events</a>
         <a href="#schedule" class="btn-outline">View Schedule</a>
       </div>
     </div>
@@ -890,66 +1120,394 @@ footer {
   </div>
 </section>
 
-<!-- EVENTS -->
-<section id="events">
-  <h2 class="section-title">Major Events</h2>
-  <p class="section-sub">A glimpse of the flagship competitions at GAJAJYOTI.</p>
+<!-- EVENTS CAROUSEL -->
+<section id="events-carousel" class="events-carousel section-alt">
+  <div class="carousel-wrapper">
 
-  <div class="grid">
-    <div class="card">
-      <h3>Hackathon</h3>
-      <p>24-hour problem solving and innovation marathon.</p>
+    <h2 class="section-title">Events at GAJAJYOTI 2026</h2>
+    <p class="section-sub">
+      Club activities, school-wise competitions, and grand fest highlights —
+      all coming together in one unforgettable celebration.
+    </p>
+
+    <!-- CLUB EVENTS -->
+<div class="day-block">
+  <h3 class="day-title">Club Events</h3>
+
+  <div class="carousel-track auto-scroll">
+
+    <!-- CaSR Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('./assets/logos/csar.png');">
+      <span class="event-tag">CaSR Club</span>
+      <h4>Creative Arts & Expression</h4>
+      <ul>
+        <li>Digital Painting Competition</li>
+        <li>Short Film Making Competition</li>
+        <li>Creative Writing Competition</li>
+        <li>Craft</li>
+        <li>Rangoli</li>
+        <li>Singing</li>
+        <li>Poetry / Shayari</li>
+        <li>Speak Sphere</li>
+      </ul>
     </div>
-    <div class="card">
-      <h3>Cultural Night</h3>
-      <p>Music, dance and celebrity performances.</p>
+
+    <!-- Spiritual Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773');">
+      <span class="event-tag">Spiritual Club</span>
+      <h4>Mind & Wellness</h4>
+      <ul>
+        <li>Yogasana Competition</li>
+        <li>Bhagavad Gita Quiz</li>
+      </ul>
     </div>
-    <div class="card">
-      <h3>Sports & Gaming</h3>
-      <p>Competitive sports and esports tournaments.</p>
+
+    <!-- Zyra Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('assets/logos/Zyra.jpg');">
+      <span class="event-tag">Zyra Club</span>
+      <h4>Fashion & Style</h4>
+      <ul>
+        <li>Audition – CFW</li>
+        <li>Mr & Miss Centurion</li>
+      </ul>
     </div>
+
+    <!-- Coding Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475');">
+      <span class="event-tag">Coding Club</span>
+      <h4>Programming & Logic</h4>
+      <ul>
+        <li>Competitive Coding Event</li>
+      </ul>
+    </div>
+
+    <!-- Drone Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('./assets/logos/drone-club.png');">
+      <span class="event-tag">Drone Club</span>
+      <h4>Aerial Technology</h4>
+      <ul>
+        <li>Maneuver Drone Simulators</li>
+      </ul>
+    </div>
+
+    <!-- AgriFora Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('./assets/logos/Agrifora.jpg');">
+      <span class="event-tag">AgriFora Club</span>
+      <h4>Knowledge & Challenge</h4>
+      <ul>
+        <li>Quiz Competition</li>
+        <li>Debate Competition</li>
+        <li>Science Olympiad</li>
+        <li>Riddle Relay Race</li>
+      </ul>
+    </div>
+
+    <!-- Literature Club -->
+    <div class="event-card-scroll event-image"
+      style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+      <span class="event-tag">Literature Club</span>
+      <h4>Words & Imagination</h4>
+      <ul>
+        <li>One Picture Many Stories</li>
+        <li>Fun Finale</li>
+        <li>Word Hackathon</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- ================= AGRIFORA CLUB ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <!-- Club Header -->
+    <div class="club-header">
+      <h2 class="section-title">AgriFora Club</h2>
+      <p class="section-sub">Knowledge, Science & Critical Thinking</p>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="event-cards">
+
+      <!-- Quiz Competition -->
+      <div class="event-detail-card">
+        <div class="event-category">KNOWLEDGE</div>
+        <h4>Quiz Competition</h4>
+
+        <p>
+          A knowledge-based competition testing awareness across agriculture,
+          science, and general studies through engaging quiz rounds.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-calendar-days"></i>
+            28 Jan 2026 · Seminar Hall
+          </div>
+
+          <div class="event-actions">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScC5K55IUhAwgszsDH-6ErWfxgnFABXVwymZo6MDkqiw7MwCQ/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Debate Competition -->
+      <div class="event-detail-card">
+        <div class="event-category">COMMUNICATION</div>
+        <h4>Debate Competition</h4>
+
+        <p>
+          Showcase your analytical thinking and articulation skills by debating
+          contemporary topics related to agriculture, science, and society.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-calendar-days"></i>
+            30 Jan 2026 · Seminar Hall
+          </div>
+
+          <div class="event-actions">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScC5K55IUhAwgszsDH-6ErWfxgnFABXVwymZo6MDkqiw7MwCQ/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Science Olympiad -->
+      <div class="event-detail-card">
+        <div class="event-category">SCIENCE</div>
+        <h4>Science Olympiad</h4>
+
+        <p>
+          A competitive platform to challenge scientific knowledge, logical
+          reasoning, and problem-solving abilities.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-calendar-days"></i>
+            30 Jan 2026 · Seminar Hall
+          </div>
+
+          <div class="event-actions">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScC5K55IUhAwgszsDH-6ErWfxgnFABXVwymZo6MDkqiw7MwCQ/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Riddle Relay Race -->
+      <div class="event-detail-card">
+        <div class="event-category">LOGIC & FUN</div>
+        <h4>Riddle Relay Race</h4>
+
+        <p>
+          A fast-paced relay challenge combining riddles, logical puzzles, and
+          teamwork for an exciting problem-solving experience.
+        </p>
+
+        <div class="event-footer">
+          <div class="event-meta">
+            <i class="fa-solid fa-calendar-days"></i>
+            31 Jan 2026 · Seminar Hall
+          </div>
+
+          <div class="event-actions">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScC5K55IUhAwgszsDH-6ErWfxgnFABXVwymZo6MDkqiw7MwCQ/viewform"
+              target="_blank"
+              class="btn-register"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   <!-- SCHOOL EVENTS -->
+<div class="day-block">
+  <h3 class="day-title">School-wise Events</h3>
+
+  <div class="carousel-track">
+
+    <!-- SoET -->
+    <div class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1581091870627-3a4f06e39d2d');">
+      <span class="event-tag">SoET</span>
+      <h4>Engineering & Technology</h4>
+      <ul>
+        <li>Hackathon</li>
+        <li>Coding marathon</li>
+        <li>Mapathon</li>
+        <li>Treasure Hunt</li>
+        <li>AR/VR</li>
+        <li>Project expo</li>
+      </ul>
+    </div>
+
+    <!-- SoN -->
+    <div class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1580281657521-6c6b38b3d6f9');">
+      <span class="event-tag">SoN</span>
+      <h4>Nursing </h4>
+      <ul>
+        <li>MED Quiz League </li>
+        <li>CPR Marathon </li>
+        <li>Waste to wellness</li>
+        <li>Prepation of nutrious diet on specific disease</li>
+      </ul>
+    </div>
+
+    <!-- SoF -->
+    <div class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1582719478185-2f6d1f0b59a1');">
+      <span class="event-tag">SoF</span>
+      <h4>Fishery</h4>
+      <ul>
+        <li>Aquathon</li>
+        <li>Swimming </li>
+        <li>Fish identification</li>
+      </ul>
+    </div>
+
+    <!-- SoABE -->
+    <div class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');">
+      <span class="event-tag">SoABE</span>
+      <h4>Agriculture & Bio-Engineering</h4>
+      <ul>
+        <li>Product Architect</li>
+        <li>Agro-Bio Ideathon</li>
+        <li>Search alert</li>
+        <li>Roadster</li>
+      </ul>
+    </div>
+
+    <!-- MSSSoA -->
+    <div class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');">
+      <span class="event-tag">MSSSoA</span>
+      <h4>M.S. Swaminathan School of Agriculture</h4>
+      <ul>
+        <li>Millet Miracles </li>
+        <li>Promotional video</li>
+        <li>SMART FARMG QUIZ</li>
+        <li>Idea to Impact challenge</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    <!-- FEST HIGHLIGHTS -->
+<div class="day-block">
+  <h3 class="day-title">Fest Highlights</h3>
+
+  <div class="carousel-track">
+
+    <!-- STAR NIGHT -->
+    <div
+      class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1518972559570-7cc1309f3229');">
+      <span class="event-tag">Fest</span>
+      <h4>Star Night</h4>
+      <ul>
+        <li>Celebrity Performances</li>
+        <li>Live Music & Dance</li>
+        <li>Grand Open-Air Stage</li>
+      </ul>
+    </div>
+
+    <!-- CULTURAL NIGHT -->
+    <div
+      class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063');">
+      <span class="event-tag">Fest</span>
+      <h4>Cultural Night</h4>
+      <ul>
+        <li>Dance & Music Shows</li>
+        <li>Drama & Fashion Acts</li>
+        <li>Inter-School Performances</li>
+      </ul>
+    </div>
+
+    <!-- CLOSING CEREMONY -->
+    <div
+      class="event-card-scroll"
+      style="background-image:url('https://images.unsplash.com/photo-1503428593586-e225b39bddfe');">
+      <span class="event-tag">Fest</span>
+      <h4>Closing Ceremony</h4>
+      <ul>
+        <li>Prize Distribution</li>
+        <li>Felicitations</li>
+        <li>Grand Finale Celebration</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="events-cta">
+  <a href="events.html" class="btn-primary">
+    View All Events & Register
+  </a>
+</div>
+</div>
   </div>
 </section>
 
 <!-- SCHEDULE -->
-<section id="schedule" class="section-alt">
+<section id="schedule" class="section-dark schedule-section">
   <h2 class="section-title">Event Schedule</h2>
-  <p class="section-sub">Three days of continuous celebration.</p>
 
-  <div class="grid">
-    <div class="schedule-item">
-      <h4>Day 1</h4>
-      <p>Inauguration & Technical Events</p>
-    </div>
-    <div class="schedule-item">
-      <h4>Day 2</h4>
-      <p>Cultural & Sports Events</p>
-    </div>
-    <div class="schedule-item">
-      <h4>Day 3</h4>
-      <p>Finals & Closing Ceremony</p>
-    </div>
+  <p class="section-sub">
+    The complete event schedule for GAJAJYOTI 2026 will be updated soon.
+    Stay tuned for further announcements.
+  </p>
+
+  <div class="schedule-badge">
+    Schedule Coming Soon
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">Contact & Venue</h2>
-  <p class="section-sub">Reach out for registrations and queries.</p>
+<section id="contact" class="section-alt contact-preview">
+  <h2 class="section-title">Contact & Coordination</h2>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Venue</h3>
-      <p>CUTM, Paralakhemundi<br>Odisha, India</p>
-    </div>
-    <div class="card">
-      <h3>Email</h3>
-      <p>gajajyoti@cutm.ac.in</p>
-    </div>
-    <div class="card">
-      <h3>Phone</h3>
-      <p>+91 96923 85543</p>
-    </div>
+  <p class="section-sub">
+    For event registrations, coordination, and official communication related to
+    <strong>GAJAJYOTI 2026</strong>, please visit the contact page.
+  </p>
+
+  <div class="contact-actions">
+    <a href="contact.html" class="btn-primary">
+      View Coordinators & Contact Details
+    </a>
   </div>
 </section>
 
@@ -963,7 +1521,7 @@ document.getElementById("menuToggle").onclick = () =>
   document.getElementById("navMenu").classList.toggle("show");
 
 /* COUNTDOWN */
-const eventDate = new Date("January 29, 2026 10:00:00").getTime();
+const eventDate = new Date("Febuary 19, 2026 10:00:00").getTime();
 setInterval(() => {
   const now = new Date().getTime();
   const diff = eventDate - now;
@@ -972,6 +1530,37 @@ setInterval(() => {
   minutes.innerText = Math.max(0, Math.floor((diff / (1000*60)) % 60));
   seconds.innerText = Math.max(0, Math.floor((diff / 1000) % 60));
 }, 1000);
+
+  document.querySelectorAll('.carousel-track').forEach(track => {
+
+    const speed = 0.6; // your requested speed
+    let position = 0;
+
+    // Clone cards once
+    const items = Array.from(track.children);
+    items.forEach(item => {
+      track.appendChild(item.cloneNode(true));
+    });
+
+    // Total width of original set
+    const originalWidth = track.scrollWidth / 2;
+
+    function animate() {
+      position += speed;
+
+      // Seamless loop
+      if (position >= originalWidth) {
+        position = 0;
+      }
+
+      // GPU-accelerated movement (NO scrollLeft)
+      track.style.transform = `translateX(-${position}px)`;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
 </script>
 
 </body>
