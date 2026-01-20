@@ -19,7 +19,7 @@ Paralakhemundi college fest, CUTM annual celebration" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= ROOT ================= */
+/* ================= ROOT ================= */ 
 :root {
   --primary: #f5c542;
   --accent: #64b4ff;
@@ -85,32 +85,60 @@ body {
 
 /* ================= HERO ================= */
 .hero {
-  min-height: 100vh;
-  padding: 120px 60px 80px;
+  position: relative;
+  height: 82vh;              /* reduced from 100vh */
+  min-height: 620px;         /* ensures it doesn’t collapse */
+  max-height: 820px;         /* prevents huge screens issue */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* HERO GRID */
+.hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 90px 60px 50px;   /* reduced */
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px;
+  gap: 40px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
-.hero h1 {
+/* HERO TEXT */
+.hero-text h1 {
   font-size: 60px;
   letter-spacing: 3px;
+  margin-top: 8px;
 }
 
-.hero p {
-  margin-top: 12px;
+.hero-text p {
+  margin-top: 8px;
   font-size: 18px;
   color: var(--muted);
 }
 
+/* ACTION BUTTONS */
 .hero-actions {
-  margin-top: 30px;
+  margin-top: 22px; /* tighter */
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
+/* PRIMARY BUTTON */
 .btn-primary {
   padding: 14px 34px;
   background: var(--primary);
@@ -118,14 +146,146 @@ body {
   border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(245,197,66,0.35);
+}
+
+/* OUTLINE BUTTON */
 .btn-outline {
   padding: 14px 34px;
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 40px;
   color: var(--text);
   text-decoration: none;
+  transition: background 0.25s ease, border 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.45);
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  transform: translate(-50%, -50%) rotate(270deg);
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* ================= ABOUT : PRO LAYOUT ================= */
+.about-pro {
+  padding: 55px 60px;
+}
+
+.about-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px; /* reduced gap */
+  align-items: center;
+}
+
+/* LEFT TEXT */
+.about-content .section-title {
+  margin-bottom: 16px; /* tighter */
+}
+
+.about-text {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.65;   /* tighter but readable */
+  margin-bottom: 14px; /* reduced spacing */
+}
+
+/* RIGHT CARDS */
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.highlight-card {
+  padding: 22px; /* slightly reduced */
+}
+.about-highlights .highlight-card:last-child {
+  grid-column: span 2;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .about-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .about-pro {
+  padding: 55px 60px;
+}
+
+  .about-content {
+    text-align: center;
+  }
+
+  .about-highlights {
+    margin-top: 18px;
+  }
+}
+.about-content .section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.about-content .section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  margin-top: 10px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+
+/* ================= Logo ================= */
+/* ABOUT LOGOS – UPDATED */
+.about-logos {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+/* Individual logos */
+.about-logos img {
+  height: 82px;                /* bigger & readable */
+  object-fit: contain;
+  opacity: 0.95;
+  transition: transform 0.3s ease;
+}
+
+/* Subtle interaction (no color tricks) */
+.about-logos img:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile adjustment */
+@media (max-width: 900px) {
+  .about-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+
+  .about-logos img {
+    height: 46px;
+  }
 }
 
 /* ================= GLASS CARD ================= */
@@ -147,6 +307,11 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.45);
 }
 
+/* Pull hero countdown card slightly up (key alignment fix) */
+.hero-card {
+  margin-top: -10px;
+}
+
 /* ================= PILLS ================= */
 .pill {
   display: inline-block;
@@ -155,7 +320,7 @@ body {
   border-radius: 999px;
   background: rgba(245,197,66,0.15);
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .pill.secondary {
@@ -167,19 +332,19 @@ body {
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 20px;
+  gap: 12px; /* tighter */
+  margin-top: 14px;
 }
 
 .countdown-item {
   text-align: center;
-  padding: 18px;
+  padding: 16px;
   background: rgba(255,255,255,0.06);
   border-radius: 14px;
 }
 
 .countdown-value {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
 }
 
@@ -194,7 +359,12 @@ section {
 }
 
 .section-alt {
-  background: rgba(255,255,255,0.02);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.02)
+  );
 }
 
 .section-title {
@@ -232,42 +402,82 @@ footer {
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 110px 20px 60px;
-  }
+@media (max-width: 900px) {
 
-  .hero h1 {
-    font-size: 38px;
-  }
-
+  /* NAVBAR */
   .menu-toggle {
     display: block;
   }
 
+  .navbar {
+    padding: 14px 20px;
+  }
+
   .navbar ul {
     position: absolute;
-    top: 70px;
-    right: 20px;
-    background: rgba(15,18,32,0.95);
+    top: 64px;
+    right: 16px;
+    background: rgba(15,18,32,0.97);
     flex-direction: column;
-    padding: 20px;
+    gap: 16px;
+    padding: 18px 20px;
     border-radius: 14px;
     display: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.45);
   }
 
   .navbar ul.show {
     display: flex;
   }
 
+  /* HERO */
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+    letter-spacing: 1px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .hero-card {
+    margin-top: 24px;
+  }
+
+  /* COUNTDOWN */
+  .countdown {
+    gap: 10px;
+  }
+
+  .countdown-value {
+    font-size: 22px;
+  }
+
+  /* SECTIONS */
   section {
-    padding: 70px 20px;
+    padding: 60px 18px;
   }
 }
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
@@ -285,69 +495,124 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <span class="pill">Annual University Fest</span>
-    <h1>GAJAJYOTI 2026</h1>
-    <p>Centurion University of Technology & Management, Paralakhemundi</p>
 
-    <div class="hero-actions">
-      <a href="#events" class="btn-primary">Explore Events</a>
-      <a href="#schedule" class="btn-outline">View Schedule</a>
-    </div>
-  </div>
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="C:\Projects\Gajajyoti 2026\assets\Hero.bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <div class="card">
-    <h3>Countdown to Fest</h3>
-    <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">
-      The celebration begins soon.
-    </p>
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
 
-    <div class="countdown">
-      <div class="countdown-item">
-        <div class="countdown-value" id="days">--</div>
-        <div class="countdown-label">Days</div>
-      </div>
-      <div class="countdown-item">
-        <div class="countdown-value" id="hours">--</div>
-        <div class="countdown-label">Hours</div>
-      </div>
-      <div class="countdown-item">
-        <div class="countdown-value" id="minutes">--</div>
-        <div class="countdown-label">Minutes</div>
-      </div>
-      <div class="countdown-item">
-        <div class="countdown-value" id="seconds">--</div>
-        <div class="countdown-label">Seconds</div>
+  <!-- Hero Content -->
+  <div class="hero-inner">
+
+    <!-- Left Content -->
+    <div class="hero-text">
+      <span class="pill">Annual Techno-Management-Cultural Fest</span>
+      <h1>GAJAJYOTI 2026</h1>
+      <p>Centurion University of Technology & Management, Paralakhemundi</p>
+
+      <div class="hero-actions">
+        <a href="#events" class="btn-primary">Explore Events</a>
+        <a href="#schedule" class="btn-outline">View Schedule</a>
       </div>
     </div>
+
+    <!-- Countdown Card -->
+    <div class="card hero-card">
+      <h3>Countdown to Fest</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">
+        The celebration begins soon.
+      </p>
+
+      <div class="countdown">
+        <div class="countdown-item">
+          <div class="countdown-value" id="days">--</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="hours">--</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="minutes">--</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="seconds">--</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section-alt">
-  <h2 class="section-title">About the Fest</h2>
-  <p class="section-sub">
-    Gajajyoti is the flagship annual fest of CUTM, celebrating innovation, culture, sports,
-    and student excellence across all schools.
-  </p>
+<section id="about" class="section-alt about-pro">
+  <div class="about-wrapper">
 
-  <div class="grid">
-    <div class="card">
-      <span class="pill">Innovation</span>
-      <h3>Technical Excellence</h3>
-      <p>Hackathons, coding contests, project expos, and innovation challenges.</p>
+    <!-- LEFT : NARRATIVE CONTENT -->
+    <div class="about-content">
+      <h2 class="section-title">About GAJAJYOTI</h2>
+
+      <p class="about-text">
+        Gajajyoti is the annual fest of Centurion University of Technology and Management,
+        Paralakhemundi, celebrating the spirit of creativity, innovation, and culture.
+      </p>
+
+      <p class="about-text">
+        The fest brings together students from all disciplines through exciting technical
+        events, cultural shows, exhibitions, and competitions, showcasing Centurion’s
+        vibrant energy and talent.
+      </p>
+
+      <p class="about-text">
+        The grand highlight of the celebration is the <strong>Star Night</strong>, where
+        renowned artists and performers light up the stage with music, dance, and
+        entertainment—making GAJAJYOTI an unforgettable experience for everyone.
+      </p>
+
+      <!-- LOGO STRIP (PRO & SUBTLE) -->
+      <div class="about-logos">
+        <img src="assets/logos/gajajyoti.png" alt="Gajajyoti Logo">
+        <img src="assets/logos/csar.png" alt="CSAR Logo">
+        <img src="assets/logos/cutm.png" alt="CUTM Logo">
+      </div>
     </div>
 
-    <div class="card">
-      <span class="pill secondary">Culture</span>
-      <h3>Creative Expression</h3>
-      <p>Dance, music, drama, fashion, photography and fine arts.</p>
-    </div>
+    <!-- RIGHT : HIGHLIGHT CARDS -->
+    <div class="about-highlights">
 
-    <div class="card">
-      <span class="pill">Sports</span>
-      <h3>Energy & Sportsmanship</h3>
-      <p>Indoor & outdoor sports along with high-energy gaming events.</p>
+      <div class="card highlight-card">
+        <span class="pill">Innovation</span>
+        <h3>Technical & Creative Events</h3>
+        <p>
+          Hackathons, project expos, coding contests, exhibitions, and idea showcases
+          that promote innovation and problem-solving.
+        </p>
+      </div>
+
+      <div class="card highlight-card">
+        <span class="pill secondary">Culture</span>
+        <h3>Cultural Shows & Competitions</h3>
+        <p>
+          Dance, music, drama, fashion, fine arts, and cultural competitions that reflect
+          creativity and expression.
+        </p>
+      </div>
+
+      <div class="card highlight-card">
+        <span class="pill">Star Night</span>
+        <h3>Celebrity Performances</h3>
+        <p>
+          A spectacular night featuring renowned artists and performers delivering
+          high-energy entertainment and unforgettable moments.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
