@@ -52,7 +52,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 16px 50px;
+  padding: 14px 50px; /* slightly tighter */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,26 +61,69 @@ body {
   z-index: 1000;
 }
 
-.navbar h2 {
-  letter-spacing: 2px;
+/* BRAND (LOGO + TEXT) */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+.nav-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar h2 {
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin: 0;
+}
+
+/* NAV LINKS */
 .navbar ul {
   list-style: none;
   display: flex;
   gap: 26px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar a {
   color: var(--text);
   text-decoration: none;
   font-size: 14px;
+  transition: color 0.25s ease;
 }
 
+.navbar a:hover {
+  color: var(--primary);
+}
+
+/* MOBILE MENU ICON */
 .menu-toggle {
   display: none;
   font-size: 26px;
   cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .nav-logo {
+    height: 32px;
+  }
+
+  .navbar h2 {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* ================= HERO ================= */
@@ -288,6 +331,155 @@ body {
   }
 }
 
+/* ================= CELEBRITY SECTION ================= */
+.celebrity-section {
+  padding: 80px 60px 100px; /* extra bottom spacing for separation */
+  position: relative;
+}
+
+/* subtle divider to separate from next section */
+.celebrity-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+}
+
+.celebrity-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================= LEFT COLUMN ================= */
+.celebrity-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* CELEBRITY IMAGE CARD */
+.celebrity-card {
+  height: 320px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebrity-photo {
+  text-align: center;
+  color: var(--muted);
+}
+
+.celebrity-photo span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.celebrity-photo h3 {
+  margin-top: 6px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+/* ================= INFO BELOW CARD ================= */
+.celebrity-info h4 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.celebrity-role {
+  font-size: 13px;
+  color: var(--primary);
+}
+
+/* SOCIAL ICONS */
+.celebrity-socials {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+}
+
+.celebrity-socials a {
+  font-size: 20px;
+  color: #ffffff; /* force visibility */
+  opacity: 0.9;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.celebrity-socials a:hover {
+  transform: translateY(-2px);
+  color: var(--primary);
+}
+
+/* ================= RIGHT CONTENT ================= */
+.celebrity-content .section-title {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.celebrity-text {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.celebrity-badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(245,197,66,0.15);
+  color: var(--primary);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .celebrity-section {
+    padding: 60px 20px 80px;
+  }
+
+  .celebrity-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .celebrity-left {
+    align-items: center;
+  }
+
+  .celebrity-card {
+    height: 260px;
+  }
+
+  .celebrity-socials {
+    justify-content: center;
+  }
+}
+
 /* ================= GLASS CARD ================= */
 .card {
   background: linear-gradient(
@@ -482,8 +674,13 @@ footer {
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <h2>GAJAJYOTI</h2>
+  <div class="nav-brand">
+    <img src="./assets/logos/gajajyoti.png" alt="Gajajyoti Logo" class="nav-logo">
+    <h2>GAJAJYOTI</h2>
+  </div>
+
   <div class="menu-toggle" id="menuToggle">☰</div>
+
   <ul id="navMenu">
     <li><a href="#">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -615,6 +812,65 @@ footer {
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- CELEBRITY SECTION -->
+<section id="celebrity" class="celebrity-section">
+  <div class="celebrity-wrapper">
+
+    <!-- LEFT : IMAGE + INFO BELOW -->
+    <div class="celebrity-left">
+
+      <!-- IMAGE / PLACEHOLDER -->
+      <div class="celebrity-card">
+        <div class="celebrity-photo">
+          <span>Celebrity</span>
+          <h3>To Be Revealed Soon</h3>
+        </div>
+      </div>
+
+      <!-- INFO BELOW IMAGE -->
+      <div class="celebrity-info">
+        <h4>Artist Name</h4>
+        <span class="celebrity-role">Singer / Performer</span>
+
+        <div class="celebrity-socials">
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT : CONTENT -->
+    <div class="celebrity-content">
+      <span class="pill secondary">Celebrity Night</span>
+      <h2 class="section-title">Star Night @ GAJAJYOTI 2026</h2>
+
+      <p class="celebrity-text">
+        The most awaited highlight of GAJAJYOTI 2026 is the spectacular
+        <strong>Celebrity Night</strong>, bringing electrifying performances
+        and high-energy entertainment to the grand stage.
+      </p>
+
+      <p class="celebrity-text">
+        Get ready for an unforgettable evening of music, lights, and
+        celebration as renowned artists take over the night.
+      </p>
+
+      <div class="celebrity-badge">
+        Artist Announcement Coming Soon
+      </div>
+    </div>
+
   </div>
 </section>
 
