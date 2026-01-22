@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact & Coordinators | GAJAJYOTI 2026</title>
+<meta name="viewport" content="width=1200">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+:root{
+  --primary:#f5c542;
+  --text:#eaeaf0;
+  --muted:rgba(255,255,255,.65);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+  background:radial-gradient(circle at top,#1b1f2a,#0f1220 45%,#0b0e16);
+  color:var(--text);
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:0;width:100%;
+  padding:14px 50px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(15,18,32,.75);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{height:36px}
+.navbar ul{list-style:none;display:flex;gap:26px}
+.navbar a{color:var(--text);text-decoration:none;font-size:14px}
+.navbar a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+  padding:170px 60px 110px;
+  max-width:1200px;
+  margin:auto;
+}
+.hero h1{font-size:46px;margin-bottom:14px}
+.hero p{color:var(--muted);max-width:750px}
+
+/* SECTIONS */
+section{padding:80px 0}
+.section-alt{
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.06),rgba(255,255,255,.03));
+}
+.container{max-width:1200px;margin:auto;padding:0 60px}
+
+.club-header{margin-bottom:36px}
+.section-title{font-size:34px}
+.section-sub{color:var(--muted);margin-top:6px}
+
+/* CARD GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* CARD */
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:22px;
+  padding:26px;
+  transition:.35s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(245,197,66,.9);
+  box-shadow:
+    0 0 0 1px rgba(245,197,66,.6),
+    0 20px 50px rgba(245,197,66,.35),
+    0 30px 80px rgba(0,0,0,.6);
+}
+
+.card h4{font-size:18px;margin-bottom:6px}
+.card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* TEAM HEADING */
+.team-title{
+  margin:60px 0 18px;
+  font-size:22px;
+  color:var(--primary);
+}
+/* Avatar */
+.card-avatar{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:linear-gradient(135deg, rgba(245,197,66,.35), rgba(245,197,66,.1));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:var(--primary);
+  margin-bottom:16px;
+  box-shadow:0 0 0 2px rgba(245,197,66,.35);
+}
+
+/* Premium Name */
+.card-name{
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:6px;
+  background:linear-gradient(90deg,#f5c542,#ffd773);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Meta text */
+.card-meta{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+/* Role badge */
+.role-badge{
+  display:inline-block;
+  margin-top:8px;
+  padding:4px 12px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(245,197,66,.18);
+  color:var(--primary);
+  font-weight:500;
+}
+/* Centered card content */
+.card.centered{
+  text-align:center;
+}
+
+/* Avatar centered */
+.card-avatar.center{
+  margin:0 auto 16px;
+}
+
+/* Premium name (reuse) */
+.card-name{
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:8px;
+  background:linear-gradient(90deg,#f5c542,#ffd773);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Meta text */
+.card-meta{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.intern-grid {
+  justify-content: center;
+}
+
+/* Premium Intern Card */
+.intern-card-premium {
+  position: relative;
+  text-align: center;
+  padding: 42px 36px 36px;
+  max-width: 420px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.intern-card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.65),
+    0 0 35px rgba(245,197,66,0.25);
+}
+
+/* Gold glow ring */
+.intern-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: 22px;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(245,197,66,0.35),
+    transparent 40%,
+    transparent 60%,
+    rgba(245,197,66,0.25)
+  );
+  opacity: 0.35;
+}
+
+/* Avatar */
+.premium-avatar {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  color: #000;
+  background: linear-gradient(
+    180deg,
+    #f5c542,
+    #e2b437
+  );
+  box-shadow:
+    0 12px 35px rgba(245,197,66,0.55),
+    inset 0 0 0 2px rgba(255,255,255,0.25);
+}
+
+/* Name */
+.premium-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+/* Role line */
+.card-role {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* Meta */
+.premium-meta {
+  font-size: 15px;
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+/* ================= DEAN SECTION ================= */
+.dean-section {
+  padding: 90px 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(245,197,66,0.12),
+    rgba(15,18,32,0.85) 45%,
+    rgba(11,14,22,1)
+  );
+}
+
+.dean-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Card */
+.dean-card {
+  text-align: center;
+  padding: 44px 36px;
+}
+
+/* Right Message */
+.dean-message {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.dean-message p {
+  margin-bottom: 22px;
+}
+
+.dean-signature {
+  margin-top: 26px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.dean-signature span {
+  color: var(--primary);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dean-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .dean-card {
+    margin: 0 auto;
+  }
+
+  .dean-message {
+    text-align: center;
+  }
+}
+
+/* FOOTER */
+footer{
+  padding:30px;
+  text-align:center;
+  background:rgba(0,0,0,.6);
+  font-size:13px;
+  color:var(--muted);
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-brand">
+    <img src="./assets/logos/gajajyoti.png" class="nav-logo">
+    <h2>GAJAJYOTI</h2>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about.index.html">About</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Contact & Coordination</h1>
+  <p>
+    Official contact details of GAJAJYOTI 2026 including administration,
+    faculty coordinators, volunteers, and media team.
+  </p>
+</div>
+
+<!-- ================= DEAN ================= -->
+<section class="dean-section">
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Dean – Students Affairs</h2>
+    </div>
+
+    <div class="dean-layout">
+
+      <!-- LEFT : PROFILE CARD -->
+      <div class="card dean-card">
+        <div class="card-avatar premium-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="card-name premium-name">
+          Dr. Ritesh Kumar
+        </div>
+
+        <div class="card-role">
+          Dean, Students Affairs
+        </div>
+
+        <div class="card-meta premium-meta">
+          <i class="fa-solid fa-phone"></i>
+          <span>8905222857</span>
+        </div>
+      </div>
+
+      <!-- RIGHT : MESSAGE -->
+      <div class="dean-message">
+        <p>
+          GAJAJYOTI is not just a cultural fest, but a celebration of talent,
+          leadership, and collaboration. It provides students a platform to
+          express creativity, develop confidence, and build lifelong memories.
+        </p>
+
+        <p>
+          I extend my best wishes to all participants, coordinators, and volunteers
+          for making this event a grand success through dedication and teamwork.
+        </p>
+
+        <div class="dean-signature">
+          <strong>— Dr. Ritesh Kumar</strong><br>
+          <span>Dean, Students Affairs</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= INTERN ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Intern</h2>
+      <p class="section-sub">Office of Dean – Students Affairs</p>
+    </div>
+
+    <div class="grid intern-grid">
+
+      <div class="card intern-card-premium">
+        <div class="intern-ring"></div>
+
+        <div class="card-avatar premium-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="card-name premium-name">
+          Mr. Deep Joel. P
+        </div>
+
+        <div class="card-role">
+          Student Affairs Intern
+        </div>
+
+        <div class="card-meta premium-meta">
+          <i class="fa-solid fa-phone"></i>
+          <span>8919108486</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FACULTY COORDINATORS ================= -->
+<section>
+  <div class="container">
+    <div class="club-header">
+      <h2 class="section-title">Faculty Coordinators</h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Mr. Bikram Narayan</div>
+        <div class="card-meta">📞 9439874577</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Ashirbachan</div>
+        <div class="card-meta">📞 7008461263</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Pratyush Kumar Das</div>
+        <div class="card-meta">📞 6371865337</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Miss. Upasana Sahoo</div>
+        <div class="card-meta">📞 7751875049</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Nihal R.</div>
+        <div class="card-meta">📞 7892922379</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Manish Kumar</div>
+        <div class="card-meta">📞 9696352193</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Mr. Victor Pradhan</div>
+        <div class="card-meta">📞 9937365635</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. D. J. Gaikwad</div>
+        <div class="card-meta">📞 8093524042</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Mis. Reshmi Jena</div>
+        <div class="card-meta">📞 9348160210</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Bishnu Prasad Dash</div>
+        <div class="card-meta">📞 8338076260</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Sameer Mohapatra</div>
+        <div class="card-meta">📞 8984139006</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Rajashree Jena</div>
+        <div class="card-meta">📞 8295279157</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Balaji Padhy</div>
+        <div class="card-meta">📞 8093875271</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Iffat Jahan</div>
+        <div class="card-meta">📞 9820643503</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Prangya Pradhan</div>
+        <div class="card-meta">📞 8763834475</div>
+      </div>
+
+      <div class="card centered">
+        <div class="card-avatar center"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dr. Jeevaratnam. N</div>
+        <div class="card-meta">📞 8847882452</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOLUNTEERS ================= -->
+<section>
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Volunteers</h2>
+      <p class="section-sub">CSAR Club – Student Volunteer Teams</p>
+    </div>
+
+    <!-- ================= OVERALL LEAD ================= -->
+    <h3 class="team-title">Overall Lead</h3>
+    <div class="grid">
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">V. Venu</div>
+        <div class="card-meta">
+          Reg No: 220101120160<br>
+          Year: 4th Year
+        </div>
+        <div class="card-phone">📞 220101120160</div>
+        <span class="role-badge">Leader of Teams</span>
+      </div>
+    </div>
+
+    <!-- ================= PINK PANTHERIES ================= -->
+    <h3 class="team-title">Pink Pantheries</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Snehasree Hotta</div>
+        <div class="card-meta">
+          Reg No: 230804130045<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9861165776</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Purandar Hantal</div>
+        <div class="card-meta">
+          Reg No: 230804130038<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8144006137</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Rahul Metya</div>
+        <div class="card-meta">
+          Reg No: 230804130030<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 6294857224</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Chinmaya Kumar Sahu</div>
+        <div class="card-meta">
+          Reg No: 230804130061<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9337880206</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Sumanta Pramanik</div>
+        <div class="card-meta">
+          Reg No: 230804130004<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 7602731916</div>
+      </div>
+
+    </div>
+
+    <!-- ================= EMERALD GREEN ================= -->
+    <h3 class="team-title">Emerald Green</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Omm Sai Janmejaya</div>
+        <div class="card-meta">
+          Reg No: 234723100008<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9437015101</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Tattwa Prakash Das</div>
+        <div class="card-meta">
+          Reg No: 234723100009<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 6371259001</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Ashish Rout</div>
+        <div class="card-meta">
+          Reg No: 234723100031<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 7735530863</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Biswadeep Gandhi</div>
+        <div class="card-meta">
+          Reg No: 244723100060<br>
+          Year: 2nd Year
+        </div>
+        <div class="card-phone">📞 7735047572</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Dibyaprakash Parida</div>
+        <div class="card-meta">
+          Reg No: 244723100032<br>
+          Year: 2nd Year
+        </div>
+        <div class="card-phone">📞 9827235214</div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIOLET DYNASTY ================= -->
+    <h3 class="team-title">Violet Dynasty</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Jaya Rama Durga Etamsetti</div>
+        <div class="card-meta">
+          Reg No: 230804230010<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8978293903</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Lolla Abhiram</div>
+        <div class="card-meta">
+          Reg No: 230804130197<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9966189352</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">K. Manoj Kumar Reddy</div>
+        <div class="card-meta">
+          Reg No: 230804130135<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8247477872</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">S. Devi Asritha</div>
+        <div class="card-meta">
+          Reg No: 230804130196<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9866627768</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">M. Bhoomika</div>
+        <div class="card-meta">
+          Reg No: 230804130185<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8328521130</div>
+      </div>
+
+    </div>
+
+    <!-- ================= AZURE BLUE ================= -->
+    <h3 class="team-title">Azure Blue</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Prudhvi</div>
+        <div class="card-meta">
+          Reg No: 230209120060<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8117017771</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Shiva</div>
+        <div class="card-meta">
+          Reg No: 230101120130<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 7032307146</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Chandu</div>
+        <div class="card-meta">
+          Reg No: 230101120009<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9827499299</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Aman</div>
+        <div class="card-meta">
+          Reg No: 240209120061<br>
+          Year: 2nd Year
+        </div>
+        <div class="card-phone">📞 7256879015</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Aditya</div>
+        <div class="card-meta">
+          Reg No: 240209120052<br>
+          Year: 2nd Year
+        </div>
+        <div class="card-phone">📞 6206518696</div>
+      </div>
+
+    </div>
+
+    <!-- ================= BURNING BROWN ================= -->
+    <h3 class="team-title">Burning Brown</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Aditya Kumar Singh</div>
+        <div class="card-meta">
+          Reg No: 230101120148<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9523636047</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Shivam Kumar Singh</div>
+        <div class="card-meta">
+          Reg No: 230101120149<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8877344024</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Yuraj</div>
+        <div class="card-meta">
+          Reg No: 230101120260<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9693004108</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Subham Kumar</div>
+        <div class="card-meta">
+          Reg No: 230101130096<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9304453270</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Akash</div>
+        <div class="card-meta">
+          Reg No: 232004430001<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9337259467</div>
+      </div>
+
+    </div>
+
+    <!-- ================= CRIMSON RED ================= -->
+    <h3 class="team-title">Crimson Red</h3>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">G. Pavan Datta</div>
+        <div class="card-meta">
+          Reg No: 230101120031<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 8249397556</div>
+        <span class="role-badge">Team Leader</span>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Sunny Kumar Patel</div>
+        <div class="card-meta">
+          Reg No: 230101120038<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9905263856</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">D. Srivatsa</div>
+        <div class="card-meta">
+          Reg No: 230101120039<br>
+          Year: 3rd Year
+        </div>
+        <div class="card-phone">📞 9391213451</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Surya Umapathi</div>
+        <div class="card-meta">
+          Reg No: 244723100069<br>
+          Year: 2nd Year
+        </div>
+        <div class="card-phone">📞 8667257414</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="card-name">Krutisundar Behera</div>
+        <div class="card-meta">
+          Reg No: 250804130042<br>
+          Year: 1st Year
+        </div>
+        <div class="card-phone">📞 9861153067</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MEDIA TEAM ================= -->
+<section class="section-alt">
+  <div class="container">
+
+    <div class="club-header">
+      <h2 class="section-title">Media Team</h2>
+      <p class="section-sub">CSAR Club – Creative & Media Support</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="card-name">Timmy Sabar</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="card-name">Pradip Gamango</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="card-name">Shrabanti Maitra</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="card-name">Tarun</div>
+      </div>
+
+      <div class="card">
+        <div class="card-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="card-name">Nikhil</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+© GAJAJYOTI 2026 | Centurion University of Technology & Management
+</footer>
+
+</body>
+</html>
