@@ -1,0 +1,320 @@
+/* ======================================================
+   EVENTS CSS – SAME DESIGN AS INDEX PAGE
+   Standalone file (NO styles.css dependency)
+====================================================== */
+
+/* ================= ROOT ================= */
+:root {
+  --primary: #f5c542;
+  --accent: #64b4ff;
+  --danger: #ff5a5a;
+  --text: #eaeaf0;
+  --muted: rgba(255,255,255,0.65);
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(
+    circle at top,
+    #1b1f2a 0%,
+    #0f1220 45%,
+    #0b0e16 100%
+  );
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 82vh;
+  min-height: 620px;
+  max-height: 820px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 90px 60px 50px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= HERO CONTENT ================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(245,197,66,0.15);
+  color: var(--primary);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
+.hero-content h1 span {
+  color: var(--primary);
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ================= HERO META ================= */
+.hero-meta {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.hero-meta strong {
+  color: var(--text);
+}
+
+/* ================= BUTTONS ================= */
+.hero-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 34px;
+  background: var(--primary);
+  color: #000;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(245,197,66,0.35);
+}
+
+.btn-outline {
+  padding: 14px 34px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 40px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.25s ease, border 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.45);
+}
+
+/* ================= STATUS ================= */
+.event-status {
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(100,255,180,0.15);
+  color: #6dffc7;
+}
+
+/* ================= HERO CARD ================= */
+.hero-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: -10px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.hero-tag {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 60px 60px;              /* reduced vertical gap */
+}
+
+.section-title {
+  font-size: 34px;                 /* slightly tighter */
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 24px;             /* reduced gap */
+  max-width: 680px;                /* cleaner text line */
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;                       /* tighter & modern */
+}
+
+/* ================= GLASS CARDS ================= */
+.card,
+.info-card,
+.contact-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 26px;                   /* reduced padding */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* ⭐ PREMIUM GOLD HOVER */
+.card:hover,
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245,197,66,0.55);
+  box-shadow:
+    0 12px 30px rgba(245,197,66,0.28),
+    0 0 0 1px rgba(245,197,66,0.25);
+}
+
+/* ================= PILLS ================= */
+.pill {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(245,197,66,0.15);
+  color: var(--primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.pill.secondary {
+  background: rgba(100,180,255,0.15);
+  color: var(--accent);
+}
+
+/* ================= LIST ================= */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+
+.list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* ================= CONTACT ================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  section {
+    padding: 70px 20px;
+  }
+}
+@media (max-width: 500px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+}
