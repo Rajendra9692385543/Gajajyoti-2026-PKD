@@ -703,27 +703,170 @@ body {
   position: relative;
 }
 
-/* ================= CONTACT PREVIEW ================= */
-.contact-preview {
+/* ================= CONTACT PREMIUM ================= */
+.contact-wrapper {
+  max-width: 1200px;
+  margin: auto;
   text-align: center;
 }
 
-.contact-preview .section-sub {
-  max-width: 680px;
-  margin: 0 auto 36px;
+.contact-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
 }
 
-.contact-actions {
-  margin-top: 20px;
+/* cards */
+.contact-card {
+  position: relative;
+  padding: 34px;
+  overflow: hidden;
 }
 
-/* Mobile 
-@media (max-width: 900px) {
-  .contact-preview .section-sub {
-    font-size: 14px;
-  }
+/* background image (CUTM PKD) */
+.bg-campus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f") center/cover no-repeat;
+  opacity: 0.12;
+  z-index: 0;
 }
-*/
+
+.bg-campus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.25)
+  );
+  z-index: 0;
+}
+
+/* keep content above bg */
+.contact-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* titles */
+.contact-card h3 {
+  font-size: 20px;
+  margin: 12px 0 18px;
+}
+
+/* list */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.contact-list i {
+  color: var(--primary);
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* socials */
+.contact-socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.contact-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.contact-socials a:hover {
+  transform: translateY(-3px);
+  background: rgba(245,197,66,0.2);
+  color: var(--primary);
+}
+/* ================= CaSR CARD BACKGROUND ================= */
+.bg-csar {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo layer */
+.bg-csar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/logos/csar.png") no-repeat;
+  background-position: right 18px bottom 18px;
+  background-size: 180px;
+  opacity: 0.12;               /* subtle & premium */
+  z-index: 0;
+}
+
+/* Dark glass overlay for readability */
+.bg-csar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25)
+  );
+  z-index: 0;
+}
+
+/* Keep content above */
+.bg-csar > * {
+  position: relative;
+  z-index: 1;
+}
+/* ================= CUTM PKD CONTACT CARD ================= */
+.bg-cutm-pkd {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Campus background image */
+.bg-cutm-pkd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      rgba(10, 14, 30, 0.85),
+      rgba(10, 14, 30, 0.85)
+    ),
+    url("./assets/logos/cutm.png") center / cover no-repeat;
+  z-index: 0;
+}
+
+/* Ensure content stays above background */
+.bg-cutm-pkd > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ================= GLASS CARD ================= */
 .card {
   background: linear-gradient(
@@ -1521,18 +1664,96 @@ section {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section-alt contact-preview">
-  <h2 class="section-title">Contact & Coordination</h2>
+<section id="contact" class="section-alt contact-premium">
+  <div class="contact-wrapper">
 
-  <p class="section-sub">
-    For event registrations, coordination, and official communication related to
-    <strong>GAJAJYOTI 2026</strong>, please visit the contact page.
-  </p>
+    <h2 class="section-title">Contact & Coordination</h2>
+    <p class="section-sub">
+      Official communication and coordination for
+      <strong>GAJAJYOTI 2026</strong> at Centurion University, Paralakhemundi.
+    </p>
 
-  <div class="contact-actions">
-    <a href="contact.html" class="btn-primary">
-      View Coordinators & Contact Details
+    <div class="contact-grid">
+
+      <!-- CARD 1 : CaSR -->
+<div class="card contact-card bg-csar">
+  <span class="pill secondary">CaSR · CUTM PKD</span>
+  <h3>Centre for Social Responsibility</h3>
+
+  <ul class="contact-list">
+    <li>
+      <i class="fa-solid fa-envelope"></i>
+      <span>csar_pkd@cutm.ac.in</span>
+    </li>
+    <li>
+      <i class="fa-solid fa-location-dot"></i>
+      <span>CUTM, Paralakhemundi Campus</span>
+    </li>
+  </ul>
+
+  <div class="contact-socials">
+    <a href="https://www.instagram.com/cutm_casr_pkd?igsh=MW1ydDJoaHAzdXZ2" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
     </a>
+    <a href="https://www.facebook.com/share/1bd4oMccLe/" aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://youtube.com/@casr-paralakhemundi?si=cBbqP-VIHE2xUNP0" aria-label="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
+</div>
+
+      <!-- CARD 2 : GAJAJYOTI -->
+      <div class="card contact-card bg-campus">
+        <span class="pill">GAJAJYOTI 2026</span>
+        <h3>Fest Coordination Desk</h3>
+
+        <ul class="contact-list">
+          <li>
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>February 2026</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-users"></i>
+            <span>Student & Faculty Coordinators</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>CUTM Paralakhemundi</span>
+          </li>
+        </ul>
+
+        <div class="contact-socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+     <!-- CARD 3 : CAMPUS CONTACT -->
+<div class="card contact-card bg-cutm-pkd">
+  <span class="pill secondary">Campus Contact</span>
+  <h3>Centurion University of Technology & Management</h3>
+
+  <ul class="contact-list">
+    <li>
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Paralakhemundi Campus, Odisha</span>
+    </li>
+    <li>
+      <i class="fa-solid fa-envelope"></i>
+      <span>https://cutm.ac.in</span>
+    </li>
+    
+  </ul>
+</div>
+<div class="events-cta">
+  <a href="events.html" class="btn-primary">
+    View All Coordinators
+  </a>
+</div>
+</div>
+    </div>
   </div>
 </section>
 
