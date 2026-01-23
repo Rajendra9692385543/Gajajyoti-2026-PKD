@@ -875,13 +875,110 @@ section {
   }
 }
 */
-/* ================= FOOTER ================= */
-footer {
-  padding: 30px;
-  text-align: center;
-  background: rgba(0,0,0,0.6);
-  font-size: 13px;
+/* ================= INDEX-STYLE FOOTER ================= */
+.index-style-footer {
+  background: linear-gradient(
+    180deg,
+    rgba(11,14,22,0.95),
+    rgba(8,10,18,1)
+  );
+  margin-top: 20px;
+}
+
+/* Grid */
+.index-style-footer .footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 45px 60px 35px;   /* ↓ reduced from 80px */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;                 /* ↓ reduced from 70px */
+}
+
+/* Titles */
+.index-style-footer .footer-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+/* Soft underline (index accent) */
+.index-style-footer .footer-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 26px;
+  height: 2px;
+  background: var(--primary);
+  opacity: 0.8;
+}
+
+/* Text */
+.index-style-footer .footer-text {
+  font-size: 14px;
+  line-height: 1.65;
   color: var(--muted);
+}
+
+/* Links */
+.index-style-footer .footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.index-style-footer .footer-links li {
+  margin-bottom: 12px;
+}
+
+.index-style-footer .footer-links a {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.index-style-footer .footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(6px);
+}
+
+/* Social icons */
+.index-style-footer .footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.index-style-footer .footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.index-style-footer .footer-social a:hover {
+  transform: translateY(-3px);
+  background: rgba(245,197,66,0.2);
+  color: var(--primary);
+}
+
+/* Bottom bar */
+.index-style-footer .footer-bottom {
+  text-align: center;
+  padding: 14px 15px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -1439,8 +1536,62 @@ footer {
   </div>
 </section>
 
-<footer>
-  © 2026 GAJAJYOTI | Centurion University of Technology & Management
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer index-style-footer">
+  <div class="footer-container">
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4 class="footer-title">Gajajyoti-2026</h4>
+      <p class="footer-text">
+        Gajajyoti-2026, CUTM PKD's grand fest, celebrates culture,
+        innovation, and talent from February 2026 with exciting events.
+      </p>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-col">
+      <h4 class="footer-title">Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4 class="footer-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Day 1 Gallery</a></li>
+        <li><a href="#">Day 2 Gallery</a></li>
+        <li><a href="#">Day 3 Gallery</a></li>
+        <li><a href="contact.html">Coordinators</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="footer-col">
+      <h4 class="footer-title">Follow Us</h4>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1bd4oMccLe">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/cutm_casr_pkd">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com/@casr-paralakhemundi">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    CENTURION UNIVERSITY OF TECHNOLOGY AND MANAGEMENT, PARALAKHEMUNDI
+  </div>
 </footer>
 
 <script>
