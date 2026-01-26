@@ -1162,7 +1162,7 @@ section {
   }
 
   .hero-video {
-    object-fit: contain;      /* 👈 KEY FIX */
+    object-fit: cover;      /* 👈 KEY FIX */
     object-position: center;
     background: #000;         /* fills empty space */
   }
@@ -1365,10 +1365,13 @@ section {
 <section class="hero">
 
   <!-- Background Video -->
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="./assets/Hero.bg.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<video class="hero-video" autoplay muted loop playsinline preload="metadata">
+  <source
+    src="https://a158us0c0svtuman.public.blob.vercel-storage.com/Hero.bg.mp4"
+    type="video/mp4"
+  >
+  Your browser does not support the video tag.
+</video>
 
   <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
