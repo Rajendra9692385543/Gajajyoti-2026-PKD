@@ -1197,6 +1197,148 @@ section {
 
  
 } 
+/* ================= STAR NIGHT PROMO ================= */
+
+.promo-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.promo-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.promo-card {
+  width: 420px;
+  max-width: 92%;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.04)
+  );
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  animation: promoIn 0.45s ease;
+  position: relative;
+}
+
+@keyframes promoIn {
+  from {
+    transform: scale(0.92) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.promo-video {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-content {
+  padding: 20px 22px 26px;
+}
+
+.promo-content h3 {
+  margin: 10px 0 6px;
+  font-size: 20px;
+}
+
+.promo-content p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.promo-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* Ensure video does not block clicks */
+.promo-video video {
+  width: auto;
+  height: 360px;        /* ⬅ increase from ~220 */
+  max-width: 100%;
+  object-fit: contain;
+  background: #000;
+  border-radius: 12px 12px 0 0;
+  pointer-events: none;
+}
+/* Ensure close button is always clickable */
+.promo-close {
+  z-index: 10;
+}
+
+.about-promo-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.about-promo-btn i {
+  font-size: 18px;
+}
+
+.about-promo-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(245,197,66,0.25);
+  color: var(--primary);
+}
+.promo-sound {
+  position: absolute;
+  top: 10px;
+  right: 56px; /* next to close */
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+.promo-video video {
+  pointer-events: none;
+}
+.promo-close,
+.promo-sound {
+  z-index: 10;
+}
+
 </style>
 </head>
 <body>
@@ -1352,13 +1494,6 @@ section {
     <!-- LEFT : IMAGE + INFO BELOW -->
     <div class="celebrity-left">
 
-      <!-- IMAGE / PLACEHOLDER --> <!--
-      <div class="celebrity-card">
-        <div class="celebrity-photo">
-          <span>Celebrity</span>
-          <h3>To Be Revealed Soon</h3>
-        </div>
-      </div> -->
       <div class="celebrity-card">
   <div class="celebrity-photo">
 
@@ -1367,26 +1502,30 @@ section {
 
     <!-- Existing Text (unchanged visually) -->
     <span>Celebrity</span>
-    <h3>To Be Revealed Soon</h3>
-
+   
   </div>
 </div>
 
       <!-- INFO BELOW IMAGE -->
       <div class="celebrity-info">
-        <h4>Artist Name</h4>
-        <span class="celebrity-role">Singer / Performer</span>
+        <h4>Varun Jain</h4>
+        <span class="celebrity-role">Singer </span>
 
         <div class="celebrity-socials">
-          <a href="#" aria-label="Instagram">
+          <a href="https://www.instagram.com/varun_wave?igsh=NjFvOGxiOTlqZXhy" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
           <a href="#" aria-label="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="#" aria-label="YouTube">
+          <a href="https://youtube.com/@varun_wave?si=Zes1XQ7TIUYVJIKR" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
+<!-- PROMO BUTTON -->
+<button class="about-promo-btn" onclick="openPromo()" aria-label="Star Night Promo">
+  <i class="fa-solid fa-video"></i>
+</button>
+
         </div>
       </div>
 
@@ -1409,7 +1548,7 @@ section {
       </p>
 
       <div class="celebrity-badge">
-        Artist Announcement Coming Soon
+        Artist Coming Soon
       </div>
     </div>
 
@@ -1816,52 +1955,161 @@ section {
 </footer>
 
 <script>
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
 document.getElementById("menuToggle").onclick = () =>
   document.getElementById("navMenu").classList.toggle("show");
 
-/* COUNTDOWN */
-const eventDate = new Date("Febuary 19, 2026 10:00:00").getTime();
+
+/* ================= COUNTDOWN ================= */
+// NOTE: Fixed spelling of February (important)
+const eventDate = new Date("February 19, 2026 10:00:00").getTime();
+
 setInterval(() => {
   const now = new Date().getTime();
   const diff = eventDate - now;
-  days.innerText = Math.max(0, Math.floor(diff / (1000*60*60*24)));
-  hours.innerText = Math.max(0, Math.floor((diff / (1000*60*60)) % 24));
-  minutes.innerText = Math.max(0, Math.floor((diff / (1000*60)) % 60));
-  seconds.innerText = Math.max(0, Math.floor((diff / 1000) % 60));
+
+  days.innerText = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+  hours.innerText = Math.max(0, Math.floor((diff / (1000 * 60 * 60)) % 24));
+  minutes.innerText = Math.max(0, Math.floor((diff / (1000 * 60)) % 60));
+  seconds.innerText = Math.max(0, Math.floor((diff / 1000)) % 60);
 }, 1000);
 
-  document.querySelectorAll('.carousel-track').forEach(track => {
 
-    const speed = 0.6; // your requested speed
-    let position = 0;
+/* ================= EVENTS AUTO SCROLL ================= */
+document.querySelectorAll(".carousel-track").forEach(track => {
 
-    // Clone cards once
-    const items = Array.from(track.children);
-    items.forEach(item => {
-      track.appendChild(item.cloneNode(true));
-    });
+  const speed = 0.6;
+  let position = 0;
 
-    // Total width of original set
-    const originalWidth = track.scrollWidth / 2;
+  // Clone cards once for seamless loop
+  const items = Array.from(track.children);
+  items.forEach(item => track.appendChild(item.cloneNode(true)));
 
-    function animate() {
-      position += speed;
+  const originalWidth = track.scrollWidth / 2;
 
-      // Seamless loop
-      if (position >= originalWidth) {
-        position = 0;
-      }
+  function animate() {
+    position += speed;
 
-      // GPU-accelerated movement (NO scrollLeft)
-      track.style.transform = `translateX(-${position}px)`;
-
-      requestAnimationFrame(animate);
+    if (position >= originalWidth) {
+      position = 0;
     }
 
-    animate();
+    track.style.transform = `translateX(-${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+
+
+/* ================= STAR NIGHT PROMO (FINAL) ================= */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const promo = document.getElementById("promoPopup");
+  const video = document.getElementById("promoVideo");
+  const soundBtn = document.querySelector(".promo-sound i");
+
+  if (!promo || !video) return;
+
+  /* Auto open once after load */
+  setTimeout(() => {
+    promo.classList.add("show");
+    video.play().catch(() => {}); // safe autoplay
+  }, 1200);
+
+  /* Open manually */
+  window.openPromo = function () {
+    promo.classList.add("show");
+
+    video.currentTime = 0;
+    video.muted = true;
+    video.play().catch(() => {});
+
+    if (soundBtn) {
+      soundBtn.className = "fa-solid fa-volume-xmark";
+    }
+  };
+
+  /* Close and STOP everything */
+  window.closePromo = function (e) {
+    if (e) e.stopPropagation();
+
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+
+    promo.classList.remove("show");
+
+    if (soundBtn) {
+      soundBtn.className = "fa-solid fa-volume-xmark";
+    }
+  };
+
+  /* Click outside closes popup */
+  promo.addEventListener("click", (e) => {
+    if (e.target === promo) {
+      window.closePromo(e);
+    }
   });
+
+  /* Sound toggle */
+  window.togglePromoSound = function (e) {
+    e.stopPropagation();
+
+    if (video.muted) {
+      video.muted = false;
+      video.volume = 0.8;
+      if (soundBtn) {
+        soundBtn.className = "fa-solid fa-volume-high";
+      }
+    } else {
+      video.muted = true;
+      if (soundBtn) {
+        soundBtn.className = "fa-solid fa-volume-xmark";
+      }
+    }
+  };
+
+});
+
 </script>
+<!-- STAR NIGHT PROMO POPUP -->
+<div class="promo-popup" id="promoPopup">
+  <div class="promo-card">
+
+    <!-- CLOSE -->
+    <button class="promo-close" onclick="closePromo(event)">×</button>
+
+    <!-- SOUND TOGGLE -->
+    <button class="promo-sound" onclick="togglePromoSound(event)" aria-label="Toggle sound">
+      <i class="fa-solid fa-volume-xmark"></i>
+    </button>
+
+    <!-- VIDEO -->
+    <div class="promo-video">
+      <video
+        id="promoVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+      >
+        <source src="./assets/GAJAJYOTI 2026 STAR NIGHT.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="promo-content">
+      <span class="pill secondary">Star Night Update</span>
+      <p>
+        A special message from the Star Night artist at GAJAJYOTI 2026.
+        Get ready for an unforgettable evening.
+      </p>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
