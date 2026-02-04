@@ -316,6 +316,87 @@ section{padding:80px 0}
   object-fit: cover;
   border-radius: 50%;
 }
+/* ===== GRID FIX ===== */
+.intern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* ===== PREMIUM CARD ===== */
+.intern-card-premium {
+  position: relative;
+  background: linear-gradient(145deg, #2b2f36, #1c1f26);
+  border-radius: 22px;
+  padding: 36px 26px 28px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.intern-card-premium:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.6);
+}
+
+/* ===== AVATAR ===== */
+.premium-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, #ffd86a, #f4b400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 0 22px rgba(255, 200, 70, 0.65);
+  overflow: hidden;
+}
+
+.premium-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials inside avatar */
+.avatar-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+/* ===== NAME ===== */
+.premium-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffd86a;
+  margin-bottom: 6px;
+}
+
+/* ===== ROLE ===== */
+.card-role {
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  color: #f4c430;
+  margin-bottom: 18px;
+}
+
+/* ===== META ===== */
+.premium-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #cfd3dc;
+}
+
+.premium-meta i {
+  margin-right: 8px;
+  color: #ffd86a;
+}
+
 /* FOOTER */
 footer{
   padding:30px;
@@ -938,47 +1019,88 @@ footer{
       <p class="section-sub">Media Resource Center</p>
     </div>
 
-    <div class="grid">
+    <div class="grid intern-grid">
 
-      <div class="card">
-        <div class="card-avatar">
-          <i class="fa-solid fa-user"></i>
+      <!-- Timmy Sabar -->
+      <div class="card intern-card-premium">
+        <div class="card-avatar premium-avatar">
+          <img src="assets/profile/timmy.png" alt="Timmy Sabar">
         </div>
-        <div class="card-name">Timmy Sabar</div>
+
+        <div class="card-name premium-name">Timmy Sabar</div>
+        <div class="card-role">MEDIA TEAM</div>
+
+        <div class="card-meta premium-meta">
+          <span><i class="fa-solid fa-phone"></i> 9XXXXXXXXX</span>
+          <span><i class="fa-solid fa-envelope"></i> timmy@cutm.ac.in</span>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-avatar">
-          <i class="fa-solid fa-user"></i>
+      <!-- Pradip Gamango -->
+      <div class="card intern-card-premium">
+        <div class="card-avatar premium-avatar">
+          <img src="assets/profile/pradip.png" alt="Pradip Gamango">
         </div>
-        <div class="card-name">Pradip Gamango</div>
+
+        <div class="card-name premium-name">Pradip Gamango</div>
+        <div class="card-role">MEDIA TEAM</div>
+
+        <div class="card-meta premium-meta">
+          <span><i class="fa-solid fa-phone"></i> 9XXXXXXXXX</span>
+          <span><i class="fa-solid fa-envelope"></i> pradip@cutm.ac.in</span>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-avatar">
-          <i class="fa-solid fa-user"></i>
+      <!-- Shrabanti Maitra -->
+      <div class="card intern-card-premium">
+        <div class="card-avatar premium-avatar">
+          <img src="assets/profile/shrabanti.png" alt="Shrabanti Maitra">
         </div>
-        <div class="card-name">Shrabanti Maitra</div>
+
+        <div class="card-name premium-name">Shrabanti Maitra</div>
+        <div class="card-role">MEDIA TEAM</div>
+
+        <div class="card-meta premium-meta">
+          <span><i class="fa-solid fa-phone"></i> 9XXXXXXXXX</span>
+          <span><i class="fa-solid fa-envelope"></i> shrabanti@cutm.ac.in</span>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-avatar">
-          <i class="fa-solid fa-user"></i>
+      <!-- Tarun -->
+      <div class="card intern-card-premium">
+        <div class="card-avatar premium-avatar">
+          <img src="assets/profile/tarun.png" alt="Tarun">
         </div>
-        <div class="card-name">Dr. Tarun</div>
+
+        <div class="card-name premium-name">Tarun</div>
+        <div class="card-role">INTERN – MEDIA TEAM</div>
+
+        <div class="card-meta premium-meta">
+          <span><i class="fa-solid fa-phone"></i> 9390104679</span>
+          <span><i class="fa-solid fa-envelope"></i> taruntejapatro@gmail.com</span>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-avatar">
-          <i class="fa-solid fa-user"></i>
+      <!-- Nikhil -->
+      <div class="card intern-card-premium">
+        <div class="card-avatar premium-avatar">
+          <img src="assets/profile/nikhil.png" alt="Nikhil">
         </div>
-        <div class="card-name">Nikhil</div>
+
+        <div class="card-name premium-name">Nikhil</div>
+        <div class="card-role">MEDIA TEAM</div>
+
+        <div class="card-meta premium-meta">
+          <span><i class="fa-solid fa-phone"></i> 9XXXXXXXXX</span>
+          <span><i class="fa-solid fa-envelope"></i> nikhil@cutm.ac.in</span>
+        </div>
       </div>
 
     </div>
 
   </div>
 </section>
+
 
 <footer>
 © GAJAJYOTI 2026 | Centurion University of Technology & Management
