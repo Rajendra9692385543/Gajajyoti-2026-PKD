@@ -12,8 +12,7 @@ CUTM events 2026,
 College cultural events Odisha,
 Gajajyoti CUTM PKD,
 Paralakhemundi college fest, CUTM annual celebration" />
-<meta name="description" content="Join us at GAJAJYOTI 2026, the annual fest of Centurion University of Technology & Management, Paralakhemundi. Experience a blend
-
+<meta name="description" content="Join us at GAJAJYOTI 2026, the annual fest of Centurion University of Technology & Management, Paralakhemundi. Experience a blend of technology, culture, innovation, and celebration." />
 <link rel="canonical" href="https://gajajyoti-2026-pkd.vercel.app/" />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -1229,6 +1228,12 @@ section {
   height: 100%;
   object-fit: cover;
 }
+/* Stack registrar image + name like Star section */
+.registrar-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* same feel as Star */
+}
 
 /* ================= TEXT (RIGHT – WIDE & READABLE) ================= */
 .registrar-popup-content {
@@ -1788,18 +1793,47 @@ section {
     </div>
   </div>
 </section>
-<!-- REGISTRAR MESSAGE (COMPACT) -->
+<!-- REGISTRAR MESSAGE (FINAL – NO CROP, ORIGINAL IMAGE STYLE) -->
 <section id="registrar-message" class="section-alt about-pro registrar-section">
   <div class="about-wrapper">
 
-    <!-- LEFT : REGISTRAR PHOTO -->
-    <div class="registrar-photo-wrap">
+    <!-- LEFT : REGISTRAR IMAGE + INFO -->
+    <div class="registrar-photo-wrap" 
+     style="margin-left:-32px; display:flex; flex-direction:column;">
+
+      <!-- IMAGE (USING ORIGINAL REGISTRAR CSS) -->
       <div class="registrar-photo-card">
         <img src="assets/profile/registar.png" alt="Registrar, CUTM">
       </div>
+
+      <!-- NAME & DETAILS (STACKED BELOW IMAGE) -->
+      <div class="celebrity-info" style="margin-top:16px; text-align:left;">
+        <h4>Dr. Anita Patra</h4>
+
+        <span class="celebrity-role">
+          Registrar, Centurion University of Technology &amp; Management, Odisha
+        </span>
+
+        <div class="celebrity-socials">
+  <!-- LinkedIn -->
+  <a href="https://in.linkedin.com/in/anita-patra-214663318"
+     target="_blank"
+     aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <!-- CUTM Profile -->
+  <a href="https://cutm.ac.in/staff/prof-anita-patra/"
+     target="_blank"
+     aria-label="CUTM Profile">
+    <i class="fa-solid fa-globe"></i>
+  </a>
+</div>
+      </div>
+
     </div>
 
-    <!-- RIGHT : MESSAGE PREVIEW -->
+    <!-- RIGHT : MESSAGE -->
     <div class="about-content">
       <span class="pill secondary">Message from the Registrar</span>
       <h2 class="section-title">A Word of Encouragement</h2>
@@ -2125,8 +2159,9 @@ section {
   <h2 class="section-title">Tentative Schedule – GAJAJYOTI 2026</h2>
 
   <p class="section-sub">
-    📅 Dates: 19<sup>th</sup> February 2025 – 21<sup>st</sup> February 2025
-  </p>
+  <i class="fa-solid fa-calendar-days" style="margin-right:8px; color: var(--primary);"></i>
+  Dates: 19<sup>th</sup> February 2026 – 21<sup>st</sup> February 2026
+</p>
 
   <!-- SCHEDULE GRID -->
   <div class="schedule-grid">
