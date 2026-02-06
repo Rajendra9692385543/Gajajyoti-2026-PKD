@@ -963,46 +963,345 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
-
-/* ================= SCHEDULE ================= */
-#schedule {
-  padding: 90px 60px;
-  text-align: center;
+/* ================= REGISTRAR MESSAGE ================= */
+.registrar-section .about-wrapper {
+  align-items: center;
 }
 
-.schedule-wrapper {
-  max-width: 720px;
+/* Image wrapper */
+.registrar-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* Glass card */
+/* REGISTRAR IMAGE CARD */
+.registrar-photo-card {
+  max-width: 360px;              /* controls visual weight */
   margin: 0 auto;
+  padding: 18px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(245,197,66,0.06);
 }
 
-#schedule .section-title {
-  margin-bottom: 12px;
+/* IMAGE ITSELF — NO CUTTING */
+.registrar-photo-card img {
+  width: 100%;
+  max-height: 420px;             /* key control */
+  object-fit: contain;           /* FULL image, no crop */
+  border-radius: 14px;
+  display: block;
 }
 
-#schedule .section-sub {
-  margin-bottom: 26px;
+/* ================= SCHEDULE SECTION – PREMIUM MATCH ================= */
+.schedule-section {
+  position: relative;
+  background: radial-gradient(
+    900px circle at top,
+    rgba(245,197,66,0.10),
+    transparent 45%
+  );
+}
+
+/* Title */
+.schedule-section .section-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+/* Dates */
+.schedule-section .section-sub {
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 56px;
+}
+
+/* ================= SCHEDULE GRID ================= */
+.schedule-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px; /* compact & balanced */
+}
+
+/* ================= DAY GLASS CARD ================= */
+.schedule-day {
+  height: 100%;
+  padding: 22px 26px;
+
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.055),
+    rgba(255,255,255,0.02)
+  );
+
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.42),
+    inset 0 0 0 1px rgba(245,197,66,0.06);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle lift */
+.schedule-day:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 22px 44px rgba(0,0,0,0.5),
+    inset 0 0 0 1px rgba(245,197,66,0.10);
+}
+
+/* ================= DAY HEADING ================= */
+.schedule-day h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: 14px;
+
+  padding-left: 12px;
+  border-left: 2px solid var(--primary);
+  color: var(--text);
+}
+
+/* ================= EVENT LIST ================= */
+.schedule-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-list li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+}
+
+/* Divider */
+.schedule-list li:not(:last-child) {
+  border-bottom: 1px dashed rgba(255,255,255,0.12);
+}
+
+/* ================= TIME BADGE ================= */
+.schedule-list .time {
+  align-self: start;
+  text-align: center;
+
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  padding: 5px 13px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #f5c542, #f1b72e);
+  color: #000;
+
+  box-shadow: 0 4px 12px rgba(245,197,66,0.32);
+}
+
+/* Hover micro interaction */
+.schedule-list li:hover .time {
+  box-shadow: 0 8px 20px rgba(245,197,66,0.5);
+}
+
+/* ================= EVENT CONTENT ================= */
+.schedule-list .event {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.schedule-list .event strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #fff;
+}
+
+.schedule-list .venue {
+  font-size: 12.5px;
   color: var(--muted);
 }
 
-.schedule-badge {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: rgba(245,197,66,0.15);
-  color: var(--primary);
-  font-size: 13px;
-}/*
-@media (max-width: 900px) {
-  .events-cta {
-    margin-top: 50px;
-    padding-bottom: 30px;
-  }
-
-  .celebrity-section {
-    padding: 80px 20px;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-*/
+
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-day {
+    padding: 22px 20px;
+  }
+
+  .schedule-list li {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .schedule-list .time {
+    width: fit-content;
+  }
+}
+
+/* ================= REGISTRAR POPUP WRAPPER ================= */
+.registrar-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.registrar-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* ================= REGISTRAR POPUP – HORIZONTAL ================= */
+
+.registrar-popup-card {
+  width: min(92vw, 1500px);     /* ⬅ EXPANDS INTO BLANK SPACE */
+  max-height: 78vh;
+
+  display: flex;
+  flex-direction: row;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.04)
+  );
+
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.15);
+  overflow: hidden;
+
+  animation: promoIn 0.45s ease;
+}
+
+/* ================= IMAGE (LEFT) ================= */
+.registrar-popup-image {
+  flex: 0 0 34%;               /* fixed image column */
+  min-width: 360px;
+  background: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registrar-popup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= TEXT (RIGHT – WIDE & READABLE) ================= */
+.registrar-popup-content {
+  flex: 1;                     /* ⬅ TAKES ALL EXTRA SPACE */
+  max-height: 78vh;
+
+  overflow-y: auto;
+  padding: 48px 72px;          /* ABOUT-section spacing */
+
+  font-size: 16.5px;
+  line-height: 1.85;
+}
+
+/* ================= SCROLLBAR ================= */
+.registrar-popup-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.registrar-popup-content::-webkit-scrollbar-thumb {
+  background: rgba(245,197,66,0.6);
+  border-radius: 10px;
+}
+
+/* ================= CLOSE BUTTON ================= */
+.registrar-popup .promo-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .registrar-popup-card {
+    flex-direction: column;
+    max-height: 90vh;
+  }
+
+  .registrar-popup-image {
+    width: 100%;
+    height: 260px;
+  }
+
+  .registrar-popup-content {
+    padding: 28px;
+  }
+}
+/* Fest video popup sizing */
+.fest-video-card {
+  width: 900px;
+  max-width: 95%;
+}
+
+/* Video container */
+.fest-video-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  background: #000;
+}
+
+/* Responsive iframe */
+.fest-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fallback button */
+.youtube-fallback {
+  padding: 14px;
+  text-align: center;
+}
 /* ================= MOBILE ================= 
 @media (max-width: 900px) {
   #schedule {
@@ -1489,7 +1788,36 @@ section {
     </div>
   </div>
 </section>
+<!-- REGISTRAR MESSAGE (COMPACT) -->
+<section id="registrar-message" class="section-alt about-pro registrar-section">
+  <div class="about-wrapper">
 
+    <!-- LEFT : REGISTRAR PHOTO -->
+    <div class="registrar-photo-wrap">
+      <div class="registrar-photo-card">
+        <img src="assets/profile/registar.png" alt="Registrar, CUTM">
+      </div>
+    </div>
+
+    <!-- RIGHT : MESSAGE PREVIEW -->
+    <div class="about-content">
+      <span class="pill secondary">Message from the Registrar</span>
+      <h2 class="section-title">A Word of Encouragement</h2>
+
+      <p class="about-text">
+        I extend my warm greetings and best wishes to all the students, faculty members,
+        organizers, and participants of <strong>Gajajyoti 2026</strong>. The fest reflects
+        the spirit of holistic education, where academic excellence converges with
+        innovation, creativity, leadership, and cultural diversity.
+      </p>
+
+      <a href="javascript:void(0)" class="btn-outline" onclick="openRegistrarPopup()">
+        Read Full Message
+      </a>
+    </div>
+
+  </div>
+</section>
 <!-- CELEBRITY SECTION -->
 <section id="celebrity" class="celebrity-section">
   <div class="celebrity-wrapper">
@@ -1679,6 +2007,7 @@ section {
         <li>Treasure Hunt</li>
         <li>AR/VR</li>
         <li>Project expo</li>
+        <li>Digital twin</li>
       </ul>
     </div>
 
@@ -1736,72 +2065,161 @@ section {
   </div>
 </div>
 
-    <!-- FEST HIGHLIGHTS -->
+<!-- FEST HIGHLIGHTS -->
 <div class="day-block">
   <h3 class="day-title">Fest Highlights</h3>
 
   <div class="carousel-track">
 
-    <!-- STAR NIGHT -->
-    <div
-      class="event-card-scroll"
-      style="background-image:url('https://images.unsplash.com/photo-1518972559570-7cc1309f3229');">
-      <span class="event-tag">Fest</span>
-      <h4>Star Night</h4>
+    <!-- GAJAJYOTI 2025 -->
+    <div class="event-card-scroll video-card"
+         data-video="https://www.youtube.com/embed/1tKSUei2HQs"
+         style="background-image:url('assets/highlights/gajajyoti-2025.jpg');">
+      <span class="event-tag">Highlights</span>
+      <h4>Gajajyoti 2025</h4>
+      <p class="card-sub">Watch the grand moments</p>
       <ul>
-        <li>Celebrity Performances</li>
-        <li>Live Music & Dance</li>
-        <li>Grand Open-Air Stage</li>
-      </ul>
-    </div>
-
-    <!-- CULTURAL NIGHT -->
-    <div
-      class="event-card-scroll"
-      style="background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063');">
-      <span class="event-tag">Fest</span>
-      <h4>Cultural Night</h4>
-      <ul>
-        <li>Dance & Music Shows</li>
-        <li>Drama & Fashion Acts</li>
-        <li>Inter-School Performances</li>
-      </ul>
-    </div>
-
-    <!-- CLOSING CEREMONY -->
-    <div
-      class="event-card-scroll"
-      style="background-image:url('https://images.unsplash.com/photo-1503428593586-e225b39bddfe');">
-      <span class="event-tag">Fest</span>
-      <h4>Closing Ceremony</h4>
-      <ul>
-        <li>Prize Distribution</li>
-        <li>Felicitations</li>
+        <li>Star Night & Celebrity Show</li>
+        <li>Cultural & Technical Events</li>
         <li>Grand Finale Celebration</li>
       </ul>
     </div>
 
+    <!-- GAJAJYOTI 2024 -->
+    <div class="event-card-scroll video-card"
+         data-video="https://www.youtube.com/embed/_twgl0FYSvk"
+         style="background-image:url('assets/highlights/gajajyoti-2024.jpg');">
+      <span class="event-tag">Highlights</span>
+      <h4>Gajajyoti 2024</h4>
+      <p class="card-sub">Relive the energy</p>
+      <ul>
+        <li>Live Performances</li>
+        <li>Student Cultural Shows</li>
+        <li>Award Distribution</li>
+      </ul>
+    </div>
+
+    <!-- GAJAJYOTI 2023 -->
+    <div class="event-card-scroll video-card"
+         data-video="https://www.youtube.com/embed/Y3fLnkoeZBA"
+         style="background-image:url('assets/highlights/gajajyoti-2023.jpg');">
+      <span class="event-tag">Highlights</span>
+      <h4>Gajajyoti 2023</h4>
+      <p class="card-sub">Memorable beginnings</p>
+      <ul>
+        <li>Inaugural Ceremony</li>
+        <li>Cultural Nights</li>
+        <li>Closing Ceremony</li>
+      </ul>
+    </div>
+
   </div>
-  <div class="events-cta">
-  <a href="events.html" class="btn-primary">
-    View All Events & Register
-  </a>
 </div>
-</div>
-  </div>
-</section>
 
 <!-- SCHEDULE -->
 <section id="schedule" class="section-dark schedule-section">
-  <h2 class="section-title">Event Schedule</h2>
+  <h2 class="section-title">Tentative Schedule – GAJAJYOTI 2026</h2>
 
   <p class="section-sub">
-    The complete event schedule for GAJAJYOTI 2026 will be updated soon.
-    Stay tuned for further announcements.
+    📅 Dates: 19<sup>th</sup> February 2025 – 21<sup>st</sup> February 2025
   </p>
 
-  <div class="schedule-badge">
-    Schedule Coming Soon
+  <!-- SCHEDULE GRID -->
+  <div class="schedule-grid">
+
+    <!-- DAY 1 -->
+    <div class="schedule-day">
+      <h3>Day 1 – Wednesday<br>19<sup>th</sup> February 2025</h3>
+
+      <ul class="schedule-list">
+        <li>
+          <span class="time">2:30 PM onwards</span>
+          <div class="event">
+            <strong>Tableau & Carnival Competition</strong>
+            <span class="venue">University Campus</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">6:30 PM onwards</span>
+          <div class="event">
+            <strong>Centurion Speak Sphere</strong>
+            <span class="venue">University Lawn</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">Evening Special</span>
+          <div class="event">
+            <strong>THE TWISTED PATH OF FEAR DIMENSION</strong>
+            <span class="venue">Odra Udaya Student Activity Centre</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="schedule-day">
+      <h3>Day 2 – Thursday<br>20<sup>th</sup> February 2025</h3>
+
+      <ul class="schedule-list">
+        <li>
+          <span class="time">9:30 AM</span>
+          <div class="event">
+            <strong>Annual Report Brief</strong>
+            <span class="venue">Auditorium</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">10:30 AM</span>
+          <div class="event">
+            <strong>Felicitation Ceremony</strong>
+            <span class="venue">Auditorium</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">6:00 PM onwards</span>
+          <div class="event">
+            <strong>Mega Award Ceremony</strong>
+            <span class="venue">University Lawn</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="schedule-day">
+      <h3>Day 3 – Friday<br>21<sup>st</sup> February 2025</h3>
+
+      <ul class="schedule-list">
+        <li>
+          <span class="time">9:30 AM</span>
+          <div class="event">
+            <strong>Faculty Performances</strong>
+            <span class="venue">Auditorium</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">2:30 PM</span>
+          <div class="event">
+            <strong>Mega Project Expo</strong>
+            <span class="venue">Auditorium</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="time">6:00 PM onwards</span>
+          <div class="event">
+            <strong>Star Night & DJ Night</strong>
+            <span class="venue">Main Ground</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
@@ -2077,6 +2495,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/* ================= REGISTRAR MESSAGE POPUP ================= */
+
+function openRegistrarPopup() {
+  const popup = document.getElementById("registrarPopup");
+  if (!popup) return;
+
+  popup.classList.add("show");
+}
+
+function closeRegistrarPopup(e) {
+  if (e) e.stopPropagation();
+
+  const popup = document.getElementById("registrarPopup");
+  if (!popup) return;
+
+  popup.classList.remove("show");
+}
+
+/* Click outside to close */
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("registrarPopup");
+  if (!popup) return;
+
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      closeRegistrarPopup(e);
+    }
+  });
+});
+
+/* ================= FEST VIDEO POPUP (FIXED & WORKING) ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const festPopup = document.getElementById("festVideoPopup");
+  const festFrame = document.getElementById("festVideoFrame");
+  const ytBtn = document.getElementById("openOnYoutube");
+
+  if (!festPopup || !festFrame) {
+    console.error("Fest video popup elements not found");
+    return;
+  }
+
+  // Attach click listeners AFTER carousel & clones exist
+  document.querySelectorAll(".video-card").forEach(card => {
+
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const baseUrl = card.dataset.video;
+      if (!baseUrl) return;
+
+      // Load YouTube video
+      festFrame.src = baseUrl + "?autoplay=1&playsinline=1";
+
+      // Fallback YouTube link
+      if (ytBtn) {
+        ytBtn.href = baseUrl.replace("/embed/", "/watch?v=");
+      }
+
+      // Show popup
+      festPopup.classList.add("show");
+    });
+
+  });
+
+  // Close when clicking outside card
+  festPopup.addEventListener("click", (e) => {
+    if (e.target === festPopup) {
+      closeFestVideo();
+    }
+  });
+
+});
+
+// Close function (GLOBAL – button uses it)
+function closeFestVideo() {
+  const festPopup = document.getElementById("festVideoPopup");
+  const festFrame = document.getElementById("festVideoFrame");
+
+  if (!festPopup || !festFrame) return;
+
+  festFrame.src = "";            // stop video
+  festPopup.classList.remove("show");
+}
 </script>
 <!-- STAR NIGHT PROMO POPUP -->
 <div class="promo-popup" id="promoPopup">
@@ -2119,6 +2623,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   </div>
 </div>
+<!-- REGISTRAR MESSAGE POPUP -->
+<div class="registrar-popup" id="registrarPopup">
+  <div class="registrar-popup-card">
 
+    <!-- CLOSE -->
+    <button class="promo-close" onclick="closeRegistrarPopup(event)">×</button>
+
+    <!-- IMAGE (LEFT) -->
+    <div class="registrar-popup-image">
+      <img src="assets/profile/registar.png" alt="Registrar, CUTM">
+    </div>
+
+    <!-- CONTENT (RIGHT) -->
+    <div class="registrar-popup-content">
+  <span class="pill secondary">Message from the Registrar</span>
+
+  <p>
+    I extend my warm greetings and best wishes to all the students, faculty members,
+    organizers, and participants of <strong>Gajajyoti 2026</strong>, the annual techno,
+    cultural, management, literary and skill fest of Centurion University of Technology
+    and Management, Odisha, being organized from
+    <strong>19th February 2026 to 21st February 2026</strong>.
+  </p>
+
+  <p>
+    Gajajyoti stands as a vibrant celebration of holistic education, where academic
+    excellence converges with innovation, creativity, leadership, and cultural diversity.
+    The fest provides an enriching platform for students to showcase their talents,
+    enhance their skills, and engage in meaningful exchanges that prepare them for
+    professional and societal challenges.
+  </p>
+
+  <p>
+    I sincerely appreciate the dedication and hard work of the organizing committee,
+    faculty mentors, and student volunteers whose collective efforts make this flagship
+    event a reality. I am confident that Gajajyoti 2026 will foster collaboration,
+    inspire young minds, and leave a lasting impact on all participants.
+  </p>
+
+  <p>
+    I wish the event great success and hope it continues to illuminate the spirit of
+    excellence and innovation at Centurion University.
+  </p>
+
+  <p style="margin-top:22px;">
+    <strong>Best wishes,</strong><br>
+    Registrar<br>
+    Centurion University of Technology and Management<br>
+    Odisha
+  </p>
+</div>
+
+  </div>
+</div>
+<!-- FEST HIGHLIGHT VIDEO POPUP -->
+<div class="promo-popup" id="festVideoPopup">
+  <div class="promo-card" style="width:860px; max-width:94%;">
+
+    <button class="promo-close" onclick="closeFestVideo()">×</button>
+
+    <div class="promo-video">
+      <iframe id="festVideoFrame"
+              width="100%"
+              height="480"
+              src=""
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
