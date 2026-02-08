@@ -1511,7 +1511,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5000;
+  z-index: 9999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -1522,9 +1522,14 @@ section {
   pointer-events: auto;
 }
 
+/* ⬇️ CHANGED: vertical tall card */
 .promo-card {
-  width: 420px;
-  max-width: 92%;
+  width: 720px;          /* narrower */
+  max-width: 94vw;
+
+  height: 88vh;          /* 🔥 vertical & big */
+  max-height: 900px;
+
   background: linear-gradient(
     180deg,
     rgba(255,255,255,0.1),
@@ -1535,6 +1540,9 @@ section {
   border: 1px solid rgba(255,255,255,0.15);
   animation: promoIn 0.45s ease;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes promoIn {
@@ -1548,13 +1556,30 @@ section {
   }
 }
 
+/* ⬇️ CHANGED: video dominates vertically */
 .promo-video {
   background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  flex: 1;               /* take most height */
+  min-height: 65%;
 }
 
+/* ⬇️ CHANGED: video fills vertical space */
+/* ================= PROMO VIDEO (NO CROP) ================= */
+.promo-video video {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;     /* ✅ FULL video visible */
+  background: #000;
+  border-radius: 12px 12px 0 0;
+  pointer-events: none;
+}
+
+/* content stays compact at bottom */
 .promo-content {
   padding: 20px 22px 26px;
 }
@@ -1570,6 +1595,7 @@ section {
   line-height: 1.5;
 }
 
+/* buttons untouched, just reinforced */
 .promo-close {
   position: absolute;
   top: 10px;
@@ -1582,22 +1608,25 @@ section {
   height: 34px;
   border-radius: 50%;
   cursor: pointer;
-}
-/* Ensure video does not block clicks */
-.promo-video video {
-  width: auto;
-  height: 360px;        /* ⬅ increase from ~220 */
-  max-width: 100%;
-  object-fit: contain;
-  background: #000;
-  border-radius: 12px 12px 0 0;
-  pointer-events: none;
-}
-/* Ensure close button is always clickable */
-.promo-close {
   z-index: 10;
 }
 
+.promo-sound {
+  position: absolute;
+  top: 10px;
+  right: 56px;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* promo trigger button untouched */
 .about-promo-btn {
   width: 48px;
   height: 48px;
@@ -1620,27 +1649,6 @@ section {
   transform: translateY(-2px);
   background: rgba(245,197,66,0.25);
   color: var(--primary);
-}
-.promo-sound {
-  position: absolute;
-  top: 10px;
-  right: 56px; /* next to close */
-  background: rgba(0,0,0,0.55);
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-}
-.promo-video video {
-  pointer-events: none;
-}
-.promo-close,
-.promo-sound {
-  z-index: 10;
 }
 
 </style>
